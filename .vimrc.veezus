@@ -1,0 +1,88 @@
+colorscheme sunburst
+set incsearch                   " incremental search
+set laststatus=2                " show a status bar at the bottom of each window
+set ruler
+set list
+set listchars=tab:>\ ,trail:-,extends:>,precedes:< " show tabs as arrows and trailing spaces as dash
+set showcmd                     " shows partial commands in the lower right
+set showmatch                   " blink opening parens when closing
+set wildmenu                    " allow tab to cycle through found options
+set wildmode=list:longest
+set splitbelow                  " open newly splitted file on the bottom
+set splitright
+set autoread                    " load files that have been updated on disk
+set scrolloff=1                 " offset the botom of the screen
+set hlsearch                    " highlight search terms
+set backspace=indent,eol,start  " allow removing indents and line breaks
+set visualbell
+set nu
+
+iabbrev rdebug    require 'ruby-debug'; Debugger.start; Debugger.settings[:autoeval] = 1; Debugger.settings[:autolist] = 1; debugger
+
+" Bundle Open command, from Bernerd Schaefer
+" Call with :BundleOpen <gemname>
+function! s:BundleOpen(Gem) abort
+  if exists(':Btabedit')
+    execute 'Btabedit '.a:Gem
+    redraw
+    let v:warningmsg = 'Use :Btabedit instead. It has tab complete!'
+    echomsg v:warningmsg
+    return
+  endif
+  let path = system('bundle show '.a:Gem)
+  if v:shell_error != 0
+    echo 'failed to run command'
+  else
+    exe 'tabedit '.substitute(path, '\v\C\n$', '', '') | :lcd %
+  endif
+endfunction
+:command! -nargs=1 BundleOpen :call s:BundleOpen(<q-args>)
+
+noremap           <F1>   <Esc>
+noremap!          <F1>   <Esc>
+
+" copy selected / grep for cursor word
+vmap <Leader>c :w !pbcopy<CR>
+nnoremap <Leader>f :grep <cword> -r app lib config vendor<CR><CR><CR>
+
+" move lines up and down
+nnoremap <C-j> mz:m+<CR>`z==
+nnoremap <C-k> mz:m-2<CR>`z==
+inoremap <C-j> <Esc>:m+<CR>==gi
+inoremap <C-k> <Esc>:m-2<CR>==gi
+vnoremap <C-j> :m'>+<CR>gv=`<my`>mzgv`yo`z
+vnoremap <C-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
+
+" timestamps for daily log
+nmap <Leader>tg o<Esc>"=strftime("%H:%M")<CR>pa -  
+nmap <Leader>te 0f-l"=strftime("%H:%M")<CR>p
+nmap <Leader>tu yypv$r=o<Esc>k
+nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<Leader>tg
+
+augroup myfiletypes
+  " Clear old autocmds in group
+  autocmd!
+  " autoindent with two spaces, always expand tabs
+  autocmd FileType text/plain,ruby,eruby,yaml,html set ai sw=2 sts=2 et
+  autocmd BufNewFile,BufRead *.prawn setf ruby
+augroup END
+
+augroup dailylogfile
+  autocmd BufRead daily_log.txt setlocal ai sw=2 sts=2 et
+augroup END
+
+augroup journalfile
+  autocmd BufRead daily_log.txt setlocal foldmethod=expr
+  autocmd BufRead daily_log.txt setlocal foldexpr=getline(v:lnum)[0]==\"\\t\"
+augroup END
+
+augroup ruby
+  autocmd User Rails Rnavcommand acceptance spec/acceptance -suffix=.feature -default=cucumber
+  autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
+  autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb -default=model()
+  autocmd User Rails Rnavcommand feature features -suffix=.feature -default=cucumber
+  autocmd User Rails Rnavcommand support spec/support features/support -default=env
+  autocmd User Rails Rnavcommand steps features/step_definitions -suffix=_steps.rb -default=web
+  autocmd User Rails Rnavcommand sweeper app/sweepers -suffix=_sweeper.rb
+  autocmd User Rails Rnavcommand template app/assets/templates -suffix=.ejs
+augroup END
