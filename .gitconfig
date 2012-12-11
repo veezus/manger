@@ -1,0 +1,18 @@
+[user]
+	name = "Veezus Kreist"
+	email = "almighty@veez.us"
+[alias]
+	b = branch
+	c = commit
+	co = checkout
+	cp = cherry-pick
+	d = diff
+	dc = diff --cached
+	pr = pull --rebase
+	put = push origin HEAD
+	s = status
+	st = status
+[color]
+	ui = true
+[core]
+	excludesfile = ~/.gitignore
