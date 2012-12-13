@@ -45,14 +45,6 @@ noremap!          <F1>   <Esc>
 vmap <Leader>c :w !pbcopy<CR>
 nnoremap <Leader>f :grep <cword> -r app lib config vendor<CR><CR><CR>
 
-" move lines up and down
-nnoremap <C-j> mz:m+<CR>`z==
-nnoremap <C-k> mz:m-2<CR>`z==
-inoremap <C-j> <Esc>:m+<CR>==gi
-inoremap <C-k> <Esc>:m-2<CR>==gi
-vnoremap <C-j> :m'>+<CR>gv=`<my`>mzgv`yo`z
-vnoremap <C-k> :m'<-2<CR>gv=`>my`<mzgv`yo`z
-
 " timestamps for daily log
 nmap <Leader>tg o<Esc>"=strftime("%H:%M")<CR>pa -  
 nmap <Leader>te 0f-l"=strftime("%H:%M")<CR>p
