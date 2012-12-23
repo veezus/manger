@@ -11,7 +11,7 @@ set wildmode=list:longest
 set splitbelow                  " open newly splitted file on the bottom
 set splitright
 set autoread                    " load files that have been updated on disk
-set scrolloff=1                 " offset the botom of the screen
+set scrolloff=5                 " screen scrolls at 5 lines from top or bottom
 set hlsearch                    " highlight search terms
 set backspace=indent,eol,start  " allow removing indents and line breaks
 set visualbell
