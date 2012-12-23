@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cwd=`pwd`
 files=(.bashrc .bashrc.veezus .vimrc .vimrc.veezus .gitconfig .git-completion.bash)
