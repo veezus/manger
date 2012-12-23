@@ -2,14 +2,14 @@ colorscheme sunburst
 set incsearch                   " incremental search
 set laststatus=2                " show a status bar at the bottom of each window
 set ruler
-set list
-set listchars=tab:>\ ,trail:-,extends:>,precedes:< " show tabs as arrows and trailing spaces as dash
+set list                        " show tabs as arrows and trailing spaces as dash
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<
 set showcmd                     " shows partial commands in the lower right
 set showmatch                   " blink opening parens when closing
 set wildmenu                    " allow tab to cycle through found options
 set wildmode=list:longest
-set splitbelow                  " open newly splitted file on the bottom
-set splitright
+set splitbelow                  " open newly split file on the bottom
+set splitright                  " open newly split file on the right
 set autoread                    " load files that have been updated on disk
 set scrolloff=5                 " screen scrolls at 5 lines from top or bottom
 set hlsearch                    " highlight search terms
@@ -41,8 +41,9 @@ endfunction
 noremap           <F1>   <Esc>
 noremap!          <F1>   <Esc>
 
-" copy selected / grep for cursor word
+" copy selected line
 vmap <Leader>c :w !pbcopy<CR>
+" grep for word under cursor
 nnoremap <Leader>f :grep <cword> -r app lib config vendor<CR><CR><CR>
 
 " timestamps for daily log
