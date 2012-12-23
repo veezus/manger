@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+source_dir=`pwd`
+files=".bashrc .bashrc.veezus .ctags .vimrc .vimrc.veezus .gitconfig .git-completion.bash"
+
+function _link {
+	for file in $files; do
+		if [ -e $HOME/$file ]; then
+			echo "Skipping existing $file"
+		else
+			echo "Adding symlink for $file"
+			`ln -s $source_dir/$file $HOME/$file`
+		fi
+	done
+}
+
+function _unlink {
+	for file in $files; do
+		if [ -e $HOME/$file ]; then
+			if [ -L $HOME/$file ]; then
+				echo "Removing symlinked $HOME/$file"
+				`rm $HOME/$file`
+			else
+				echo "Skipping non-symlink $HOME/$file"
+			fi
+		else
+			echo "Ignoring non-existent $HOME/$file"
+		fi
+	done
+}
+
+case $1 in
+	link)
+		_link
+		;;
+	unlink)
+		_unlink
+		;;
+	*)
+		echo "Would you like to link or unlink the following manger files?"
+		echo $files
+		;;
+esac
+
+# vim:ft=bash:
