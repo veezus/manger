@@ -29,12 +29,44 @@ function _unlink {
 	done
 }
 
+function _install_bundle {
+	echo "Fetching $2"
+	if [ -e $2 ]; then
+		(
+			cd $2
+			git pull
+		)
+	else
+		git clone https://github.com/$1/$2.git
+	fi
+}
+
+function _vim_bundle {
+	mkdir -p ~/.vim/bundle
+	cd ~/.vim/bundle
+	_install_bundle adamlowe vim-slurper
+	_install_bundle jgdavey vim-blockle
+	_install_bundle pangloss vim-javascript
+	_install_bundle sickill vim-sunburst
+	_install_bundle tpope vim-commentary
+	_install_bundle tpope vim-cucumber
+	_install_bundle tpope vim-endwise
+	_install_bundle tpope vim-fugitive
+	_install_bundle tpope vim-rails
+	_install_bundle tpope vim-surround
+	_install_bundle tpope vim-unimpaired
+	_install_bundle vim-ruby vim-ruby
+}
+
 case $1 in
 	link)
 		_link
 		;;
 	unlink)
 		_unlink
+		;;
+	vimbundle)
+		_vim_bundle
 		;;
 	*)
 		echo "Would you like to link or unlink the following manger files?"
