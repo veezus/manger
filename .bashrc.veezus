@@ -100,5 +100,5 @@ git_prompt_info () {
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# Load machine settings if available
+[ -e "$HOME/.git-completion.bash" ] && . "$HOME/.git-completion.bash"
 [ -e "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"
