@@ -2,6 +2,7 @@
 	name = "Veezus Kreist"
 	email = "almighty@veez.us"
 [alias]
+	ap = add -p
 	b = branch
 	br = branch
 	c = commit
