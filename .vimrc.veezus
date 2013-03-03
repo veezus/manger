@@ -1,4 +1,4 @@
-colorscheme sunburst
+colorscheme Sunburst
 set incsearch                   " incremental search
 set laststatus=2                " show a status bar at the bottom of each window
 set ruler
