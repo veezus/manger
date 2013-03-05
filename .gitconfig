@@ -13,6 +13,7 @@
 	lg = log --graph --oneline --decorate --color --all
 	pr = pull --rebase
 	put = push origin HEAD
+	rc = rebase --continue
 	reauth = commit --amend --reset-author -CHEAD
 	s = status
 	st = status
