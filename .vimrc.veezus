@@ -34,7 +34,7 @@ function! s:BundleOpen(Gem) abort
     echo 'failed to run command'
   else
     exe 'tabedit '.substitute(path, '\v\C\n$', '', '') | :lcd %
-  endif
+  eGiven(/^$/) do\n  \nend"ndif
 endfunction
 :command! -nargs=1 BundleOpen :call s:BundleOpen(<q-args>)
 
@@ -69,15 +69,16 @@ augroup journalfile
   autocmd BufRead daily_log.txt setlocal foldexpr=getline(v:lnum)[0]==\"\\t\"
 augroup END
 
-augroup ruby
-  autocmd User Rails Rnavcommand acceptance spec/acceptance -suffix=.feature -default=cucumber
-  autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
-  autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb -default=model()
-  autocmd User Rails Rnavcommand feature features -suffix=.feature -default=cucumber
-  autocmd User Rails Rnavcommand support spec/support features/support -default=env
-  autocmd User Rails Rnavcommand steps features/step_definitions -suffix=_steps.rb -default=web
-  autocmd User Rails Rnavcommand sweeper app/sweepers -suffix=_sweeper.rb -default=model()
-  autocmd User Rails Rnavcommand presenter app/presenters -suffix=.rb -default=model()
-  autocmd User Rails Rnavcommand template app/assets/templates -suffix=.ejs
-  autocmd User Rails Rnavcommand worker app/workers -suffix=.rb -default=model()
-augroup END
+let g:rails_projections = {
+  \ "features/*.feature": {
+  \    "command": "feature",
+  \    "template": "Feature:\n\nScenario:"
+  \ },
+  \ "features/step_definitions/*_steps.rb": {
+  \    "command": "step",
+  \    "template": "Given(/^$/) do\n  \nend"
+  \ },
+  \ "spec/factories/*_factory.rb": {
+  \    "command": "factory",
+  \    "template": "FactoryGirl.define do\n  \nend"
+  \ }}
