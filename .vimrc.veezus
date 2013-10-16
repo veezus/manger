@@ -75,10 +75,12 @@ let g:rails_projections = {
   \    "template": "Feature:\n\nScenario:"
   \ },
   \ "features/step_definitions/*_steps.rb": {
-  \    "command": "step",
-  \    "template": "Given(/^$/) do\n  \nend"
+  \    "command": "step"
   \ },
   \ "spec/factories/*_factory.rb": {
   \    "command": "factory",
   \    "template": "FactoryGirl.define do\n  \nend"
+  \ },
+  \ "app/presenter/*_presenter.rb": {
+  \    "command": "presenter"
   \ }}
