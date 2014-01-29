@@ -34,7 +34,7 @@ function! s:BundleOpen(Gem) abort
     echo 'failed to run command'
   else
     exe 'tabedit '.substitute(path, '\v\C\n$', '', '') | :lcd %
-  eGiven(/^$/) do\n  \nend"ndif
+  endif
 endfunction
 :command! -nargs=1 BundleOpen :call s:BundleOpen(<q-args>)
 
