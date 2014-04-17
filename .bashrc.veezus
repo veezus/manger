@@ -24,6 +24,11 @@ export GO_DIR
 # Thanks to Bernerd http://oinopa.com/2010/10/24/laptop-driven-development.html
 export HISTIGNORE="fg*"
 
+code() {
+  cd "$GO_DIR/$1"
+  tmux attach -t $1 || tmux new -s $1
+}
+
 go() {
   cd "$GO_DIR/$1"
 }
@@ -44,6 +49,7 @@ _go()
 
   return 0
 }
+complete -F _go code
 complete -F _go go
 
 # lifted from dotmatrix http://github.com/hashrocket/dotmatrix
