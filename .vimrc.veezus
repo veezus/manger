@@ -84,3 +84,5 @@ let g:rails_projections = {
   \ "app/presenter/*_presenter.rb": {
   \    "command": "presenter"
   \ }}
+
+source ~/.vimrc.local

@@ -46,6 +46,7 @@ function _vim_bundle {
 	cd ~/.vim/bundle
 	_install_bundle adamlowe vim-slurper
 	_install_bundle jgdavey vim-blockle
+	_install_bundle jonathanfilip vim-lucius
 	_install_bundle pangloss vim-javascript
 	_install_bundle sickill vim-sunburst
 	_install_bundle tpope vim-commentary
