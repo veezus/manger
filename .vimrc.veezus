@@ -1,4 +1,3 @@
-colorscheme Sunburst
 set incsearch                   " incremental search
 set laststatus=2                " show a status bar at the bottom of each window
 set ruler
@@ -81,8 +80,12 @@ let g:rails_projections = {
   \    "command": "factory",
   \    "template": "FactoryGirl.define do\n  \nend"
   \ },
+  \ "app/observers/*_observer.rb": {
+  \    "command": "observer"
+  \ },
   \ "app/presenter/*_presenter.rb": {
   \    "command": "presenter"
   \ }}
 
+colorscheme Sunburst
 source ~/.vimrc.local

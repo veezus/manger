@@ -72,6 +72,7 @@ case $1 in
 	*)
 		echo "Would you like to link or unlink the following manger files?"
 		echo $files
+		echo "You may also install vim dependencies with vimbundle"
 		;;
 esac
 
