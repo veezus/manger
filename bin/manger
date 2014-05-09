@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source_dir=`pwd`
-files=".bashrc .bashrc.veezus .ctags .vimrc .vimrc.veezus .gitconfig .git-completion.bash"
+files=".bashrc .bashrc.veezus .ctags .vimrc .vimrc.local .vimrc.veezus .gitconfig .git-completion.bash"
 
 function _link {
 	for file in $files; do
