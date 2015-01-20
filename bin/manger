@@ -57,6 +57,7 @@ function _vim_bundle {
 	_install_bundle tpope vim-surround
 	_install_bundle tpope vim-unimpaired
 	_install_bundle vim-ruby vim-ruby
+	_install_bundle mustache vim-mustache-handlebars
 }
 
 case $1 in
