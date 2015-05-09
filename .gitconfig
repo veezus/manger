@@ -4,7 +4,6 @@
 [alias]
 	ap = add -p
 	b = branch
-	br = branch
 	c = commit
 	co = checkout
 	cp = cherry-pick
@@ -12,12 +11,13 @@
 	dc = diff --cached
 	lg = log --graph --oneline --decorate --color --all
 	me = merge
+	no = show --name-only
 	pr = pull --rebase
 	put = push origin HEAD
+	ra = rebase --abort
 	rc = rebase --continue
-	reauth = commit --amend --reset-author -CHEAD
+	reauthor = commit --amend --reset-author -CHEAD
 	s = status
-	st = status
 [color]
 	ui = true
 [core]
