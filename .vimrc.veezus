@@ -16,8 +16,6 @@ set backspace=indent,eol,start  " allow removing indents and line breaks
 set visualbell
 set nu
 
-iabbrev rdebug    require 'ruby-debug'; Debugger.start; Debugger.settings[:autoeval] = 1; Debugger.settings[:autolist] = 1; debugger
-
 " Bundle Open command, from Bernerd Schaefer
 " Call with :BundleOpen <gemname>
 function! s:BundleOpen(Gem) abort
@@ -55,7 +53,7 @@ augroup myfiletypes
   " Clear old autocmds in group
   autocmd!
   " autoindent with two spaces, always expand tabs
-  autocmd FileType text/plain,ruby,eruby,yaml,html,cucumber,javascript set ai sw=2 sts=2 et
+  autocmd FileType text/plain,ruby,eruby,yaml,html,cucumber,javascript set ai sw=2 sts=2 et ts=2
   autocmd BufNewFile,BufRead *.prawn setf ruby
 augroup END
 
