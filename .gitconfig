@@ -18,6 +18,7 @@
 	rc = rebase --continue
 	reauthor = commit --amend --reset-author -CHEAD
 	s = status
+	track = --set-upstream-to
 [color]
 	ui = true
 [core]
