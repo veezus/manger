@@ -21,6 +21,8 @@ bind '"\en": history-search-forward'
 [ -e "$GO_DIR" ] || GO_DIR="$HOME/code"
 export GO_DIR
 
+export HISTFILESIZE=4000
+export HISTSIZE=2000
 # Thanks to Bernerd http://oinopa.com/2010/10/24/laptop-driven-development.html
 export HISTIGNORE="fg*"
 
