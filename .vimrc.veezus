@@ -71,6 +71,9 @@ let g:rails_projections = {
   \    "command": "feature",
   \    "template": "Feature:\n\nScenario:"
   \ },
+  \ "features/pages/*_page.rb": {
+  \    "command": "page"
+  \ },
   \ "features/step_definitions/*_steps.rb": {
   \    "command": "step"
   \ },
