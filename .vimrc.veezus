@@ -88,5 +88,4 @@ let g:rails_projections = {
   \    "command": "presenter"
   \ }}
 
-colorscheme Sunburst
 source ~/.vimrc.local
