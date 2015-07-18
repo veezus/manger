@@ -67,6 +67,15 @@ augroup journalfile
 augroup END
 
 let g:rails_projections = {
+  \ "app/decorators/*_decorator.rb": {
+  \    "command": "decorator"
+  \ },
+  \ "app/observers/*_observer.rb": {
+  \    "command": "observer"
+  \ },
+  \ "app/presenter/*_presenter.rb": {
+  \    "command": "presenter"
+  \ },
   \ "features/*.feature": {
   \    "command": "feature",
   \    "template": "Feature:\n\nScenario:"
@@ -80,12 +89,6 @@ let g:rails_projections = {
   \ "spec/factories/*_factory.rb": {
   \    "command": "factory",
   \    "template": "FactoryGirl.define do\n  \nend"
-  \ },
-  \ "app/observers/*_observer.rb": {
-  \    "command": "observer"
-  \ },
-  \ "app/presenter/*_presenter.rb": {
-  \    "command": "presenter"
   \ }}
 
 source ~/.vimrc.local
