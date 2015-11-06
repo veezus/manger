@@ -52,6 +52,7 @@ function _vim_bundle {
 	_install_bundle sickill vim-sunburst
 	_install_bundle tpope vim-commentary
 	_install_bundle tpope vim-cucumber
+	_install_bundle tpope vim-dispatch
 	_install_bundle tpope vim-endwise
 	_install_bundle tpope vim-fugitive
 	_install_bundle tpope vim-rails
