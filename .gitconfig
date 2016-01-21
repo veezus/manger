@@ -11,6 +11,7 @@
 	dc = diff --cached
 	lg = log --graph --oneline --decorate --color --all
 	me = merge
+	mf = merge --squash
 	no = show --name-only
 	pr = pull --rebase
 	put = push origin HEAD
@@ -18,6 +19,7 @@
 	rc = rebase --continue
 	reauthor = commit --amend --reset-author -CHEAD
 	s = status
+	squash = merge --squash
 	track = --set-upstream-to
 [color]
 	ui = true

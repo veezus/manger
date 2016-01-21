@@ -48,7 +48,7 @@ nnoremap <Leader>f :grep <cword> -r app lib config features spec vendor<CR><CR><
 nmap <Leader>tg o<Esc>"=strftime("%H:%M")<CR>pa -  
 nmap <Leader>te 0f-l"=strftime("%H:%M")<CR>p
 nmap <Leader>tu yypv$r=o<Esc>k
-nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<Leader>tg
+nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<CR>O<Esc>i
 
 augroup myfiletypes
   " Clear old autocmds in group
