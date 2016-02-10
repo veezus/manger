@@ -14,8 +14,10 @@ alias testify="watchr ~/.watchr.rb"
 alias vi="vim"
 
 # meta-p and meta-n - starts with history searching
-bind '"\ep": history-search-backward'
-bind '"\en": history-search-forward'
+if ! [ -z "$PS1" ]; then
+  bind '"\ep": history-search-backward'
+  bind '"\en": history-search-forward'
+fi
 
 # inspired by dotmatrix's hcd http://github.com/hashrocket/dotmatrix
 # go command for code directory
