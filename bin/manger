@@ -61,6 +61,10 @@ function _vim_bundle {
 	_install_bundle vim-ruby vim-ruby
 	_install_bundle mustache vim-mustache-handlebars
 }
+function _vim_rebundle {
+	rm -rf ~/.vim/bundle
+	_vim_bundle
+}
 
 case $1 in
 	link)
@@ -72,10 +76,13 @@ case $1 in
 	vimbundle)
 		_vim_bundle
 		;;
+	vimrebundle)
+		_vim_rebundle
+		;;
 	*)
 		echo "Would you like to link or unlink the following manger files?"
 		echo $files
-		echo "You may also install vim dependencies with vimbundle"
+		echo "You may also install vim dependencies with vimbundle or vimrebundle"
 		;;
 esac
 
