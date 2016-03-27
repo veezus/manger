@@ -9,7 +9,7 @@
 	cp = cherry-pick
 	d = diff
 	dc = diff --cached
-	lg = log --graph --oneline --decorate --color --all
+	lg = log --graph --oneline --decorate --color --all --tags
 	me = merge
 	mf = merge --squash
 	no = show --name-only
