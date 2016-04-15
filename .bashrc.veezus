@@ -19,15 +19,15 @@ if ! [ -z "$PS1" ]; then
   bind '"\en": history-search-forward'
 fi
 
+export HISTFILESIZE=4000
+export HISTSIZE=20000
+# Thanks to Bernerd http://oinopa.com/2010/10/24/laptop-driven-development.html
+export HISTIGNORE="fg*"
+
 # inspired by dotmatrix's hcd http://github.com/hashrocket/dotmatrix
 # go command for code directory
 [ -e "$GO_DIR" ] || GO_DIR="$HOME/code"
 export GO_DIR
-
-export HISTFILESIZE=4000
-export HISTSIZE=2000
-# Thanks to Bernerd http://oinopa.com/2010/10/24/laptop-driven-development.html
-export HISTIGNORE="fg*"
 
 code() {
   cd "$GO_DIR/$1"
