@@ -22,7 +22,7 @@ fi
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=20000
 # Thanks to Bernerd http://oinopa.com/2010/10/24/laptop-driven-development.html
-export HISTIGNORE="fg*"
+export HISTIGNORE="fg*:code *:go *:history*"
 shopt -s histappend
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
