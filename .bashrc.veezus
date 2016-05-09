@@ -24,7 +24,7 @@ export HISTSIZE=20000
 # Thanks to Bernerd http://oinopa.com/2010/10/24/laptop-driven-development.html
 export HISTIGNORE="fg*:code *:go *:history*"
 shopt -s histappend
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # inspired by dotmatrix's hcd http://github.com/hashrocket/dotmatrix
 # go command for code directory
