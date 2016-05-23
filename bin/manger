@@ -48,7 +48,6 @@ function _vim_bundle {
 	_install_bundle AndrewRadev splitjoin.vim
 	_install_bundle jonathanfilip vim-lucius
 	_install_bundle kchmck vim-coffee-script
-	_install_bundle mileszs ack.vim
 	_install_bundle pangloss vim-javascript
 	_install_bundle sickill vim-sunburst
 	_install_bundle tpope vim-commentary
