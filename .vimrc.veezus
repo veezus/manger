@@ -12,6 +12,7 @@ set splitright                  " open newly split file on the right
 set autoread                    " load files that have been updated on disk
 set scrolloff=5                 " screen scrolls at 5 lines from top or bottom
 set hlsearch                    " highlight search terms
+hi Visual term=reverse cterm=reverse
 set backspace=indent,eol,start  " allow removing indents and line breaks
 set visualbell
 set nu
