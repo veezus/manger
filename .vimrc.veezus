@@ -18,6 +18,8 @@ set visualbell
 set nu
 set t_Co=16
 
+let g:polyglot_disabled = ['javascript']
+
 " Bundle Open command, from Bernerd Schaefer
 " Call with :BundleOpen <gemname>
 function! s:BundleOpen(Gem) abort

@@ -48,16 +48,15 @@ function _vim_bundle {
 	_install_bundle AndrewRadev splitjoin.vim
 	_install_bundle jonathanfilip vim-lucius
 	_install_bundle kchmck vim-coffee-script
+	_install_bundle pangloss vim-javascript
+	_install_bundle sheerun vim-polyglot
 	_install_bundle tpope vim-commentary
-	_install_bundle tpope vim-cucumber
 	_install_bundle tpope vim-dispatch
 	_install_bundle tpope vim-endwise
 	_install_bundle tpope vim-fugitive
 	_install_bundle tpope vim-rails
 	_install_bundle tpope vim-surround
 	_install_bundle tpope vim-unimpaired
-	_install_bundle vim-ruby vim-ruby
-	_install_bundle mustache vim-mustache-handlebars
 }
 function _vim_rebundle {
 	rm -rf ~/.vim/bundle
