@@ -19,6 +19,7 @@
 	rc = rebase --continue
 	reauthor = commit --amend --reset-author -CHEAD
 	s = status
+	st = status
 	squash = merge --squash
 	track = --set-upstream-to
 [color]
