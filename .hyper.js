@@ -78,12 +78,13 @@ module.exports = {
     bell: false,
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false
+    copyOnSelect: false,
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+    summonShortcut: 'Command+J'
   },
 
   // a list of plugins to fetch and install from npm
@@ -94,13 +95,13 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     // 'hyperline'
-    'hyperlinks',
     // 'hyperminimal', // Not compatible with macOS :(
-    // COLORSCHEMES
-    'hyperterm-base16-tomorrow-dark'
+    'hyperterm-summon',
+    'hyperlinks', // COLORSCHEMES
     // 'hyperterm-firewatch'
     // 'hyperterm-material-dark'
     // 'hyperterm-ir-black'
+    'hyperterm-base16-tomorrow-dark'
   ],
 
   // in development, you can create a directory under
