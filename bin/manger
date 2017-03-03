@@ -44,6 +44,7 @@ function _install_bundle {
 function _vim_bundle {
 	mkdir -p ~/.vim/bundle
 	cd ~/.vim/bundle
+	_install_bundle avdgaag vim-phoenix
 	_install_bundle adamlowe vim-slurper
 	_install_bundle AndrewRadev splitjoin.vim
 	_install_bundle jonathanfilip vim-lucius
