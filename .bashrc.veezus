@@ -1,7 +1,7 @@
 export EDITOR=vim
 
 # user:pwd(branch)$
-[ -z "$PS1" ] || export PS1="\[\033[01;97m\]\u\[\033[00m\]:\[\033[0;37m\]\w\[\033[00m\]\$(git_prompt_info '(%s)')$ "
+[ -z "$PS1" ] || export PS1="\[\033[01;97m\]\h\[\033[00m\]:\[\033[0;37m\]\w\[\033[00m\]\$(git_prompt_info '(%s)')$ "
 
 alias g="git"
 alias heroku="time heroku"
@@ -107,12 +107,16 @@ git_prompt_info () {
   fi
 }
 
-# Load RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
+# Load Cargo
 [[ -s "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
+
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Load RVM
+PATH=$HOME/.rvm/bin:$PATH
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 [ -e "$HOME/.git-completion.bash" ] && . "$HOME/.git-completion.bash"
 [ -e "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"
