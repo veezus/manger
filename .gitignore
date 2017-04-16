@@ -1,0 +1,5 @@
+*NOTES
+*.sw?
+tags
+.byebug_history
+tests
