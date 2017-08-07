@@ -118,5 +118,8 @@ export NVM_DIR="$HOME/.nvm"
 PATH=$HOME/.rvm/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+# Check for local node executables
+export PATH="$PATH:./node_modules/.bin"
+
 [ -e "$HOME/.git-completion.bash" ] && . "$HOME/.git-completion.bash"
 [ -e "$HOME/.bashrc.local" ] && . "$HOME/.bashrc.local"
