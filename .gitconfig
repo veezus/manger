@@ -21,9 +21,9 @@
 	s = status
 	st = status
 	squash = merge --squash
+	sync = !sh -c '(git fetch -p && git branch --merged | grep -v "\\*" | grep -v 'master' | grep -v 'develop' | xargs -n1 git branch -d)' -
 	track = --set-upstream-to
 	bn = !"git name-rev HEAD --name-only | tr -d \"\n\" | pbcopy && echo $(git name-rev HEAD --name-only)"
-	sync = !sh -c '(git fetch -p && git branch --merged | grep -v "\\*" | grep -v 'master' | grep -v 'develop' | xargs -n1 git branch -d)' -
 	sha = !"git rev-parse HEAD | tr -d \"\n\" | pbcopy && echo $(git rev-parse HEAD)"
 
 [color]
