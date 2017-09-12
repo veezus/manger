@@ -44,19 +44,20 @@ function _install_bundle {
 function _vim_bundle {
 	mkdir -p ~/.vim/bundle
 	cd ~/.vim/bundle
-	_install_bundle avdgaag vim-phoenix
-	_install_bundle adamlowe vim-slurper
-	_install_bundle AndrewRadev splitjoin.vim
-	_install_bundle jonathanfilip vim-lucius
-	_install_bundle kchmck vim-coffee-script
-	_install_bundle pangloss vim-javascript
 	_install_bundle sheerun vim-polyglot
 	_install_bundle tpope vim-commentary
+
+	_install_bundle pangloss vim-javascript
+	_install_bundle avdgaag vim-phoenix
+	_install_bundle tpope vim-rails
+
+	_install_bundle adamlowe vim-slurper
+
+	_install_bundle AndrewRadev splitjoin.vim
+
 	_install_bundle tpope vim-dispatch
 	_install_bundle tpope vim-endwise
 	_install_bundle tpope vim-fugitive
-	_install_bundle mustache vim-mustache-handlebars
-	_install_bundle tpope vim-rails
 	_install_bundle tpope vim-surround
 	_install_bundle tpope vim-unimpaired
 }
