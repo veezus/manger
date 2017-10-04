@@ -38,7 +38,14 @@ code() {
 }
 
 go() {
-  cd "$GO_DIR/$1"
+  case $1 in
+    buildkite)
+      cd "/usr/local/var/buildkite-agent/builds/luke.local-1/adorable"
+      ;;
+    *)
+      cd "$GO_DIR/$1"
+      ;;
+  esac
 }
 
 _go()

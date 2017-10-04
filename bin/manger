@@ -60,6 +60,7 @@ function _vim_bundle {
 	_install_bundle tpope vim-fugitive
 	_install_bundle tpope vim-surround
 	_install_bundle tpope vim-unimpaired
+	_install_bundle mileszs ack.vim
 }
 function _vim_rebundle {
 	rm -rf ~/.vim/bundle
