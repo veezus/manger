@@ -51,6 +51,7 @@ function _vim_bundle {
 	_install_bundle pangloss vim-javascript
 	_install_bundle avdgaag vim-phoenix
 	_install_bundle tpope vim-rails
+	_install_bundle tpope vim-projectionist
 
 	_install_bundle adamlowe vim-slurper
 
