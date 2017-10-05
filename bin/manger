@@ -46,6 +46,7 @@ function _vim_bundle {
 	cd ~/.vim/bundle
 	_install_bundle sheerun vim-polyglot
 	_install_bundle tpope vim-commentary
+	_install_bundle vim-scripts txt.vim
 
 	_install_bundle pangloss vim-javascript
 	_install_bundle avdgaag vim-phoenix
