@@ -7,6 +7,7 @@ alias g="git"
 alias jtags="ctags -R app config lib && sed -i '' -E '/^(if|switch|function|module\.exports|it|describe).+language:js$/d' tags"
 alias heroku="time heroku"
 alias ll="ls -l"
+alias navel="exec nave auto"
 alias rake="time rake"
 alias vi="vim"
 
@@ -122,10 +123,6 @@ git_prompt_info () {
 
 # Load Cargo
 [[ -s "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
-
-# Load NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Load RVM
 PATH=$HOME/.rvm/bin:$PATH
