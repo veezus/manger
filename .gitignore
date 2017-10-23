@@ -4,3 +4,5 @@ tags
 .byebug_history
 tests
 .DS_Store
+.ruby-gemset
+environments
