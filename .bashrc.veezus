@@ -9,6 +9,7 @@ alias heroku="time heroku"
 alias ll="ls -l"
 alias navel="exec nave auto"
 alias rake="time rake"
+alias today="vi ~/Dropbox/daily_log.txt"
 alias vi="vim"
 
 # rubygems single-gem search
