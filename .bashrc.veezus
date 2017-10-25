@@ -129,7 +129,12 @@ git_prompt_info () {
 PATH=$HOME/.rvm/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-# Check for local node executables
+# Load NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Add local node_module executables to PATH
 export PATH="$PATH:./node_modules/.bin"
 
 [ -e "$HOME/.git-completion.bash" ] && . "$HOME/.git-completion.bash"
