@@ -24,16 +24,19 @@ fi
 
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=20000
-# Thanks to Bernerd http://oinopa.com/2010/10/24/laptop-driven-development.html
 export HISTIGNORE="fg*:code *:go *:history*"
 shopt -s histappend
+# Append this session's history to the global session as each command is
+# executed
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
-# inspired by dotmatrix's hcd http://github.com/hashrocket/dotmatrix
-# go command for code directory
+# `go` allows autocompletion of and navigation to directories within the code
+# directory
 [ -e "$GO_DIR" ] || GO_DIR="$HOME/code"
 export GO_DIR
 
+# `code` creates or attaches to and existing tmux session for repositories in
+# the code directory
 code() {
   cd "$GO_DIR/$1"
   tmux attach -t $1 || tmux new -s $1
@@ -120,9 +123,6 @@ git_prompt_info () {
     fi
   fi
 }
-
-# Load Cargo
-[[ -s "$HOME/.cargo/bin" ]] && export PATH="$HOME/.cargo/bin:$PATH"
 
 # Load RVM
 PATH=$HOME/.rvm/bin:$PATH
