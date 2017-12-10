@@ -71,6 +71,9 @@ augroup journalfile
   autocmd BufRead daily_log.txt setlocal foldexpr=getline(v:lnum)[0]==\"\\t\"
 augroup END
 
+nmap <Leader>tp :Tabularize /\|<CR>
+nmap <Leader>t: :Tabularize /:\zs<CR>
+
 let g:rails_projections = {
   \ "app/assets/javascripts/*.coffee": {
   \    "command": "coffee"
