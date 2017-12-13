@@ -32,15 +32,17 @@ let halfRight = new Key('right', ['alt'], function () {
 let middle = new Key('down', ['alt'], function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
-  let height = screen.height - screen.height / 7;
-  let width = screen.width - screen.width / 4;
+  let yMargin = screen.width / 20;
+  let height = screen.height - yMargin;
+  let xMargin = screen.height / 10;
+  let width = screen.width - xMargin;
 
   if (window)
     window.setFrame({
-      x: 300,
-      y: 100,
-      height: screen.height - 200,
-      width: screen.width - 600,
+      y: yMargin / 2 + 23, // 23px is height of menu bar
+      x: xMargin / 2,
+      height: height,
+      width: width,
     });
 });
 
