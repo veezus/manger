@@ -13,6 +13,7 @@
 	me = merge
 	mf = merge --squash
 	no = show --name-only
+	pm = push manger HEAD
 	pr = pull --rebase
 	put = push origin HEAD
 	ra = rebase --abort
