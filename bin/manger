@@ -44,30 +44,27 @@ function _install_bundle {
 function _vim_bundle {
 	mkdir -p ~/.vim/bundle
 	cd ~/.vim/bundle
-	_install_bundle sheerun vim-polyglot
+
+	# Vim customization
+	_install_bundle vim-airline vim-airline
+	_install_bundle twerth ir_black
+
+	# General code
 	_install_bundle tpope vim-commentary
-	_install_bundle vim-scripts txt.vim
-
-	_install_bundle godlygeek tabular
-	_install_bundle plasticboy vim-markdown
-
-	_install_bundle pangloss vim-javascript
-	_install_bundle avdgaag vim-phoenix
-	_install_bundle tpope vim-rails
 	_install_bundle tpope vim-projectionist
-	_install_bundle jparise vim-graphql
-
-	_install_bundle adamlowe vim-slurper
-
 	_install_bundle AndrewRadev splitjoin.vim
-
-	_install_bundle tpope vim-capslock
-	_install_bundle tpope vim-dispatch
-	_install_bundle tpope vim-endwise
 	_install_bundle tpope vim-fugitive
+	_install_bundle tpope vim-endwise
 	_install_bundle tpope vim-surround
 	_install_bundle tpope vim-unimpaired
-	_install_bundle mileszs ack.vim
+
+	# Languages / frameworks
+	_install_bundle elixir-editors vim-elixir
+	_install_bundle pangloss vim-javascript
+	_install_bundle tpope vim-rails
+
+	# Project management
+	_install_bundle adamlowe vim-slurper
 }
 function _vim_rebundle {
 	rm -rf ~/.vim/bundle

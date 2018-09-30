@@ -16,9 +16,13 @@ hi Visual term=reverse cterm=reverse
 set backspace=indent,eol,start  " allow removing indents and line breaks
 set visualbell
 set nu
-set t_Co=16
+set t_Co=256
+colors ir_black
 
-let g:polyglot_disabled = ['javascript']
+augroup spacesovertabs
+  autocmd FileType javascript,ruby,sass,text,vim
+        \ setlocal autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2
+augroup END
 
 " Bundle Open command, from Bernerd Schaefer
 " Call with :BundleOpen <gemname>
@@ -53,71 +57,5 @@ nmap <Leader>te 0f-l"=strftime("%H:%M")<CR>p
 nmap <Leader>tu yypv$r=o<Esc>k
 nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<CR>O<Esc>i
 nmap <Leader>tt O<Esc>"=strftime("%a, %b %d, %Y", localtime()+86400)<CR>p<Leader>tu<CR>O<Esc>i
-
-augroup myfiletypes
-  " Clear old autocmds in group
-  autocmd!
-  " autoindent with two spaces, always expand tabs
-  autocmd FileType text,ruby,eruby,yaml,html,cucumber,javascript,coffee set ai sw=2 sts=2 et ts=2
-  autocmd BufNewFile,BufRead *.prawn setf ruby
-augroup END
-
-augroup dailylogfile
-  autocmd BufRead daily_log.txt setlocal ai sw=2 sts=2 et
-augroup END
-
-" augroup journalfile
-"   autocmd BufRead daily_log.txt setlocal foldmethod=expr
-"   autocmd BufRead daily_log.txt setlocal foldexpr=getline(v:lnum)[0]==\"\\t\"
-" augroup END
-
-nmap <Leader>tp :Tabularize /\|<CR>
-nmap <Leader>t: :Tabularize /:\zs<CR>
-
-" Auto-align upon insertion of pipe character
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
-let g:rails_projections = {
-  \ "app/assets/javascripts/*.coffee": {
-  \    "command": "coffee"
-  \ },
-  \ "app/decorators/*_decorator.rb": {
-  \    "command": "decorator"
-  \ },
-  \ "app/interactions/*.rb": {
-  \    "command": "activeinteraction"
-  \ },
-  \ "app/observers/*_observer.rb": {
-  \    "command": "observer"
-  \ },
-  \ "app/presenter/*_presenter.rb": {
-  \    "command": "presenter"
-  \ },
-  \ "spec/features/*_spec.rb": {
-  \    "command": "feature"
-  \ },
-  \ "features/pages/*_page.rb": {
-  \    "command": "page"
-  \ },
-  \ "features/step_definitions/*_steps.rb": {
-  \    "command": "step"
-  \ },
-  \ "spec/support/*.rb": {
-  \    "command": "support"
-  \ },
-  \ "spec/factories/*_factory.rb": {
-  \    "command": "factory",
-  \    "template": "FactoryGirl.define do\n  \nend"
-  \ }}
 
 source ~/.vimrc.local
