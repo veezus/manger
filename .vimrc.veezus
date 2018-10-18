@@ -20,7 +20,7 @@ set t_Co=256
 colors ir_black
 
 augroup spacesovertabs
-  autocmd FileType javascript,ruby,sass,text,vim
+  autocmd FileType javascript,html,ruby,sass,text,vim
         \ setlocal autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2
 augroup END
 

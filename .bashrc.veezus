@@ -30,6 +30,8 @@ shopt -s histappend
 # Append this session's history to the global session as each command is
 # executed
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+# Enable IEx history via Erlang
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # `go` allows autocompletion of and navigation to directories within the code
 # directory
