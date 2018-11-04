@@ -62,6 +62,7 @@ function _vim_bundle {
 	_install_bundle elixir-editors vim-elixir
 	_install_bundle pangloss vim-javascript
 	_install_bundle tpope vim-rails
+	_install_bundle posva vim-vue
 
 	# Project management
 	_install_bundle adamlowe vim-slurper
