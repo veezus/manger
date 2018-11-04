@@ -20,7 +20,7 @@ set t_Co=256
 colors ir_black
 
 augroup spacesovertabs
-  autocmd FileType javascript,html,ruby,sass,text,vim
+  autocmd FileType c,javascript,html,ruby,sass,text,vim
         \ setlocal autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2
 augroup END
 
@@ -55,7 +55,9 @@ nnoremap <Leader>f :grep <cword> -r app lib config features spec vendor<CR><CR><
 nmap <Leader>tg o<Esc>"=strftime("%H:%M")<CR>pa -  
 nmap <Leader>te 0f-l"=strftime("%H:%M")<CR>p
 nmap <Leader>tu yypv$r=o<Esc>k
-nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<CR>O<Esc>i
+nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<Leader>tg
+" For timeless date starting
+" nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<CR>O<Esc>i
 nmap <Leader>tt O<Esc>"=strftime("%a, %b %d, %Y", localtime()+86400)<CR>p<Leader>tu<CR>O<Esc>i
 
 source ~/.vimrc.local
