@@ -133,6 +133,9 @@ git_prompt_info () {
   fi
 }
 
+# Add manger executables to PATH
+PATH=$HOME/bin/:$PATH
+
 # Load RVM
 PATH=$HOME/.rvm/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

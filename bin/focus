@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+sites="www.reddit.com reddit.com www.youtube.com youtube.com www.twitter.com twitter.com"
+
+function _block {
+  ssh pihole "pihole -b $sites"
+}
+
+function _unblock {
+  ssh pihole "pihole -b -d $sites"
+}
+
+case $1 in
+  on)
+    _block
+    echo "Now blocking the following websites:"
+    echo $sites
+    ;;
+  off)
+    _unblock
+    echo "No longer blocking the following websites:"
+    echo $sites
+    ;;
+  *)
+    echo "You may turn focus *on* or *off*. Turning it on will block the"
+    echo "following sites:"
+    echo $sites
+    ;;
+esac

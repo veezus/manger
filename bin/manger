@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
 
 source_dir=`pwd`
-files=".bashrc .bashrc.veezus .ctags .gemrc .git-completion.bash .gitconfig .gitignore .hyper.js .phoenix.js .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
+dotfiles=".bashrc .bashrc.veezus .ctags .gemrc .git-completion.bash .gitconfig .gitignore .hyper.js .phoenix.js .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
+executables="bin/manger bin/focus"
 
 function _link {
-  for file in $files; do
+  for file in $dotfiles; do
+    if [ -e $HOME/$file ]; then
+      echo "Skipping existing $file"
+    else
+      echo "Adding symlink for $file"
+      `ln -s $source_dir/$file $HOME/$file`
+    fi
+  done
+
+  for file in $executables; do
     if [ -e $HOME/$file ]; then
       echo "Skipping existing $file"
     else
@@ -15,7 +25,20 @@ function _link {
 }
 
 function _unlink {
-  for file in $files; do
+  for file in $dotfiles; do
+    if [ -e $HOME/$file ]; then
+      if [ -L $HOME/$file ]; then
+        echo "Removing symlinked $HOME/$file"
+        `rm $HOME/$file`
+      else
+        echo "Skipping non-symlink $HOME/$file"
+      fi
+    else
+      echo "Ignoring non-existent $HOME/$file"
+    fi
+  done
+
+  for file in $executables; do
     if [ -e $HOME/$file ]; then
       if [ -L $HOME/$file ]; then
         echo "Removing symlinked $HOME/$file"
@@ -86,8 +109,9 @@ case $1 in
     _vim_rebundle
     ;;
   *)
-    echo "Would you like to link or unlink the following manger files?"
-    echo $files
+    echo "Would you like to link or unlink the following manger dotfiles and executable?"
+    echo $dotfiles
+    echo $executables
     echo "You may also install vim dependencies with vimbundle or vimrebundle"
     ;;
 esac
