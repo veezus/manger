@@ -4,92 +4,92 @@ source_dir=`pwd`
 files=".bashrc .bashrc.veezus .ctags .gemrc .git-completion.bash .gitconfig .gitignore .hyper.js .phoenix.js .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
 
 function _link {
-	for file in $files; do
-		if [ -e $HOME/$file ]; then
-			echo "Skipping existing $file"
-		else
-			echo "Adding symlink for $file"
-			`ln -s $source_dir/$file $HOME/$file`
-		fi
-	done
+  for file in $files; do
+    if [ -e $HOME/$file ]; then
+      echo "Skipping existing $file"
+    else
+      echo "Adding symlink for $file"
+      `ln -s $source_dir/$file $HOME/$file`
+    fi
+  done
 }
 
 function _unlink {
-	for file in $files; do
-		if [ -e $HOME/$file ]; then
-			if [ -L $HOME/$file ]; then
-				echo "Removing symlinked $HOME/$file"
-				`rm $HOME/$file`
-			else
-				echo "Skipping non-symlink $HOME/$file"
-			fi
-		else
-			echo "Ignoring non-existent $HOME/$file"
-		fi
-	done
+  for file in $files; do
+    if [ -e $HOME/$file ]; then
+      if [ -L $HOME/$file ]; then
+        echo "Removing symlinked $HOME/$file"
+        `rm $HOME/$file`
+      else
+        echo "Skipping non-symlink $HOME/$file"
+      fi
+    else
+      echo "Ignoring non-existent $HOME/$file"
+    fi
+  done
 }
 
 function _install_bundle {
-	echo "Fetching $2"
-	if [ -e $2 ]; then
-		(
-			cd $2
-			git pull
-		)
-	else
-		git clone https://github.com/$1/$2.git
-	fi
+  echo "Fetching $2"
+  if [ -e $2 ]; then
+    (
+      cd $2
+      git pull
+    )
+  else
+    git clone https://github.com/$1/$2.git
+  fi
 }
 
 function _vim_bundle {
-	mkdir -p ~/.vim/bundle
-	cd ~/.vim/bundle
+  mkdir -p ~/.vim/bundle
+  cd ~/.vim/bundle
 
-	# Vim customization
-	_install_bundle vim-airline vim-airline
-	_install_bundle twerth ir_black
+  # Vim customization
+  _install_bundle vim-airline vim-airline
+  _install_bundle twerth ir_black
 
-	# General code
-	_install_bundle tpope vim-commentary
-	_install_bundle tpope vim-projectionist
-	_install_bundle AndrewRadev splitjoin.vim
-	_install_bundle tpope vim-fugitive
-	_install_bundle tpope vim-endwise
-	_install_bundle tpope vim-surround
-	_install_bundle tpope vim-unimpaired
+  # General code
+  _install_bundle tpope vim-commentary
+  _install_bundle tpope vim-projectionist
+  _install_bundle AndrewRadev splitjoin.vim
+  _install_bundle tpope vim-fugitive
+  _install_bundle tpope vim-endwise
+  _install_bundle tpope vim-surround
+  _install_bundle tpope vim-unimpaired
 
-	# Languages / frameworks
-	_install_bundle elixir-editors vim-elixir
-	_install_bundle pangloss vim-javascript
-	_install_bundle tpope vim-rails
-	_install_bundle posva vim-vue
+  # Languages / frameworks
+  _install_bundle elixir-editors vim-elixir
+  _install_bundle pangloss vim-javascript
+  _install_bundle tpope vim-rails
+  _install_bundle posva vim-vue
 
-	# Project management
-	_install_bundle adamlowe vim-slurper
+  # Project management
+  _install_bundle adamlowe vim-slurper
 }
 function _vim_rebundle {
-	rm -rf ~/.vim/bundle
-	_vim_bundle
+  rm -rf ~/.vim/bundle
+  _vim_bundle
 }
 
 case $1 in
-	link)
-		_link
-		;;
-	unlink)
-		_unlink
-		;;
-	vimbundle)
-		_vim_bundle
-		;;
-	vimrebundle)
-		_vim_rebundle
-		;;
-	*)
-		echo "Would you like to link or unlink the following manger files?"
-		echo $files
-		echo "You may also install vim dependencies with vimbundle or vimrebundle"
-		;;
+  link)
+    _link
+    ;;
+  unlink)
+    _unlink
+    ;;
+  vimbundle)
+    _vim_bundle
+    ;;
+  vimrebundle)
+    _vim_rebundle
+    ;;
+  *)
+    echo "Would you like to link or unlink the following manger files?"
+    echo $files
+    echo "You may also install vim dependencies with vimbundle or vimrebundle"
+    ;;
 esac
 
 # vim:ft=bash:
