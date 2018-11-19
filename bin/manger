@@ -71,6 +71,7 @@ function _vim_bundle {
   # Vim customization
   _install_bundle vim-airline vim-airline
   _install_bundle twerth ir_black
+  _install_bundle mileszs ack.vim
 
   # General code
   _install_bundle tpope vim-commentary
