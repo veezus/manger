@@ -17,6 +17,10 @@ function gems {
   gem search -ra $1|grep "^$1 "
 }
 
+function volume {
+  sudo osascript -e "set Volume $1"
+}
+
 # meta-p and meta-n - starts with history searching
 if ! [ -z "$PS1" ]; then
   bind '"\ep": history-search-backward'
