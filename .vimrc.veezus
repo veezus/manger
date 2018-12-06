@@ -20,7 +20,7 @@ set t_Co=256
 colors ir_black
 
 augroup spacesovertabs
-  autocmd FileType c,eruby,javascript,json,html,ruby,sass,scss,sh,sql,text,vim,vue
+  autocmd FileType c,eruby,javascript,json,haml,html,ruby,sass,scss,sh,sql,sshconfig,text,vim,vue
         \ setlocal autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2
   " Opening a file with no filetype
   " https://stackoverflow.com/questions/46678615/how-do-you-set-an-autocmd-to-take-effect-when-filetype-is-none
@@ -57,7 +57,7 @@ nnoremap <Leader>f :grep <cword> -r app lib config features spec vendor<CR><CR><
 " timestamps for daily log
 nmap <Leader>tg o<Esc>"=strftime("%H:%M")<CR>pa -  
 nmap <Leader>te 0f-l"=strftime("%H:%M")<CR>p
-nmap <Leader>tu yypv$r=o<Esc>k
+nmap <Leader>tu yypv$r=o
 nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<Leader>tg
 " For timeless date starting
 " nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<CR>O<Esc>i
