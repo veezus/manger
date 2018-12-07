@@ -17,8 +17,21 @@ function gems {
   gem search -ra $1|grep "^$1 "
 }
 
-function volume {
-  sudo osascript -e "set Volume $1"
+function vol {
+  case $1 in
+    m)
+      sudo osascript -e "set Volume 0"
+      ;;
+    n)
+      sudo osascript -e "set Volume 0.5"
+      ;;
+    l)
+      sudo osascript -e "set Volume 1.5"
+      ;;
+    *)
+      sudo osascript -e "set Volume $1"
+      ;;
+  esac
 }
 
 # meta-p and meta-n - starts with history searching
