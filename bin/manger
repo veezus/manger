@@ -83,6 +83,7 @@ function _vim_bundle {
   _install_bundle tpope vim-unimpaired
 
   # Languages / frameworks
+  _install_bundle vim-ruby vim-ruby
   _install_bundle elixir-editors vim-elixir
   _install_bundle pangloss vim-javascript
   _install_bundle tpope vim-rails
