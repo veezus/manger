@@ -57,8 +57,13 @@ export GO_DIR
 
 # `repo` creates a repository on the manger machine
 repo() {
+  echo "Initializing repository"
+  git init
+  echo "Creating repo on manger..."
   ssh git@manger "mkdir $1 && cd $1 && git init && git config --bool core.bare true"
+  echo "Adding manger as a remote to this repository..."
   git remote add manger git@manger:$1
+  echo "Done"
 }
 
 # `code` creates or attaches to and existing tmux session for repositories in
