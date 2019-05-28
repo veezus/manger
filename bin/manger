@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 source_dir=`pwd`
-dotfiles=".bashrc .bashrc.veezus .ctags .gemrc .git-completion.bash .gitconfig .gitignore .hyper.js .phoenix.js .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
-executables="bin/manger bin/focus"
+dotfiles=".bashrc .bashrc.veezus .ctags .gemrc .gitconfig .gitignore .hyper.js .phoenix.js .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
+executables="bin/manger"
 
 function _link {
   for file in $dotfiles; do
