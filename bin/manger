@@ -81,13 +81,18 @@ function _vim_bundle {
   _install_bundle tpope vim-endwise
   _install_bundle tpope vim-surround
   _install_bundle tpope vim-unimpaired
+  _install_bundle junegunn fzf
+  _install_bundle junegunn fzf.vim
 
   # Languages / frameworks
   _install_bundle vim-ruby vim-ruby
   _install_bundle elixir-editors vim-elixir
   _install_bundle pangloss vim-javascript
+  _install_bundle leafgarland typescript-vim
   _install_bundle tpope vim-rails
   _install_bundle posva vim-vue
+  _install_bundle slim-template vim-slim
+  _install_bundle vimwiki vimwiki
 
   # Project management
   _install_bundle adamlowe vim-slurper
