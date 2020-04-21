@@ -4,11 +4,16 @@ export EDITOR=vim
 [ -z "$PS1" ] || export PS1="\[\033[01;97m\]\h\[\033[00m\]:\[\033[0;37m\]\w\[\033[00m\]\$(git_prompt_info '(%s)')$ "
 
 alias be="bundle exec"
+alias dose="docker-compose"
 alias g="git"
 alias jtags="ctags -R app config lib && sed -i '' -E '/^(if|switch|function|module\.exports|it|describe).+language:js$/d' tags"
 alias heroku="time heroku"
 alias ll="ls -lahF"
-alias rake="time rake"
+alias make="time make"
+alias rails="time bundle exec rails"
+alias rake="time bundle exec rake"
+alias rspec="time bundle exec rspec"
+alias tags="ctags -R . --exclude=*.rb && ripper-tags -Ra"
 alias today="vi ~/Dropbox/daily_log.txt"
 alias todo="vi ~/Dropbox/todo.txt"
 alias vi="vim"
@@ -35,6 +40,11 @@ function vol {
   esac
 }
 
+function tags {
+  ctags -R . --exclude=*.rb
+  ripper-tags -Ra
+}
+
 # meta-p and meta-n - starts with history searching
 if ! [ -z "$PS1" ]; then
   bind '"\ep": history-search-backward'
@@ -43,7 +53,7 @@ fi
 
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=20000
-export HISTIGNORE="fg*:code *:go *:history*"
+export HISTIGNORE="fg*:code *:go *:history*:notes"
 shopt -s histappend
 # Append this session's history to the global session as each command is
 # executed
@@ -160,8 +170,8 @@ git_prompt_info () {
 PATH=$HOME/bin/:$PATH
 
 # Load RVM
-PATH=$HOME/.rvm/bin:$PATH
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
