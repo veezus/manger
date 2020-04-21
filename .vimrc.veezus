@@ -1,3 +1,5 @@
+set tw=120                      " Wrap at 120 characters
+set fo=cq                       " Don't autowrap
 set incsearch                   " incremental search
 set laststatus=2                " show a status bar at the bottom of each window
 set ruler
@@ -26,6 +28,8 @@ augroup spacesovertabs
   " https://stackoverflow.com/questions/46678615/how-do-you-set-an-autocmd-to-take-effect-when-filetype-is-none
   autocmd BufNewFile,BufRead * if empty(&filetype) | execute 'setlocal autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2' | endif
 augroup END
+
+set autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2
 
 " Bundle Open command, from Bernerd Schaefer
 " Call with :BundleOpen <gemname>
@@ -58,9 +62,8 @@ nnoremap <Leader>f :grep <cword> -r app lib config features spec vendor<CR><CR><
 nmap <Leader>tg o<Esc>"=strftime("%H:%M")<CR>pa -  
 nmap <Leader>te 0f-l"=strftime("%H:%M")<CR>p
 nmap <Leader>tu yypv$r=o
-nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<Leader>tg
+nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<Esc>
 " For timeless date starting
-" nmap <Leader>td O<Esc>"=strftime("%a, %b %d, %Y")<CR>p<Leader>tu<CR>O<Esc>i
-nmap <Leader>tt O<Esc>"=strftime("%a, %b %d, %Y", localtime()+86400)<CR>p<Leader>tu<CR>O<Esc>i
+nmap <Leader>tt O<Esc>"=strftime("%a, %b %d, %Y", localtime()+86400)<CR>p<Leader>tu
 
 source ~/.vimrc.local
