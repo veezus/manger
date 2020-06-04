@@ -1,3 +1,4 @@
+set encoding=utf-8
 set tw=120                      " Wrap at 120 characters
 set fo=cq                       " Don't autowrap
 set incsearch                   " incremental search

@@ -1,7 +1,7 @@
 let width = 1920;
 let height = 1080;
 
-let halfLeft = new Key('left', ['alt'], function () {
+let bigLeft = new Key('left', ['alt', 'shift'], function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let spacer = screen.width / 10;
@@ -15,7 +15,24 @@ let halfLeft = new Key('left', ['alt'], function () {
     });
 });
 
-let halfRight = new Key('right', ['alt'], function () {
+let halfLeft = new Key('left', ['alt'], function () {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  let yMargin = 50;
+  let height = screen.height - yMargin;
+  let xMargin = 1200;
+  let width = screen.width - xMargin;
+
+  if (window)
+    window.setFrame({
+      y: yMargin / 2 + 23, // 23px is height of menu bar
+      x: 0,
+      height: height,
+      width: width,
+    });
+});
+
+let bigRight = new Key('right', ['alt', 'shift'], function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let spacer = screen.width / 10;
@@ -29,17 +46,55 @@ let halfRight = new Key('right', ['alt'], function () {
     });
 });
 
-let middle = new Key('down', ['alt'], function () {
+let halfRight = new Key('right', ['alt'], function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
-  let yMargin = screen.width / 20;
+  let yMargin = 50;
   let height = screen.height - yMargin;
-  let xMargin = screen.height / 10;
+  let xMargin = 1200;
   let width = screen.width - xMargin;
 
   if (window)
     window.setFrame({
       y: yMargin / 2 + 23, // 23px is height of menu bar
+      x: xMargin,
+      height: height,
+      width: width,
+    });
+});
+
+let middle = new Key('down', ['alt'], function () {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  // let yMargin = screen.width / 20;
+  // let xMargin = screen.height / 10;
+  let yMargin = 0;
+  let height = screen.height - yMargin;
+  let xMargin = 1500;
+  let width = screen.width - xMargin;
+
+  if (window)
+    window.setFrame({
+      y: 0, // 23px is height of menu bar
+      x: xMargin / 2,
+      height: height,
+      width: width,
+    });
+});
+
+let middleHigh = new Key('down', ['alt', 'shift'], function () {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  // let yMargin = screen.width / 20;
+  // let xMargin = screen.height / 10;
+  let yMargin = 500;
+  let height = screen.height - yMargin;
+  let xMargin = 1500;
+  let width = screen.width - xMargin;
+
+  if (window)
+    window.setFrame({
+      y: 0, // 23px is height of menu bar
       x: xMargin / 2,
       height: height,
       width: width,

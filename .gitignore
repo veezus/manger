@@ -8,3 +8,5 @@ tests
 environments
 .nvmrc
 node_modules
+.projections.json
+.ruby-gemset

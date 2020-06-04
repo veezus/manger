@@ -1,2 +1,4 @@
 ---
-gem: --no-ri --no-rdoc
+gem: --no-ri --no-rdoc --no-document --suggestions
+install: --no-ri --no-rdoc --no-document --suggestions
+update: --no-ri --no-rdoc --no-document --suggestions

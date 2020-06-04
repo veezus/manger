@@ -51,6 +51,8 @@ if ! [ -z "$PS1" ]; then
   bind '"\en": history-search-forward'
 fi
 
+export LANG=en_US.utf-8
+# History configuration
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=20000
 export HISTIGNORE="fg*:code *:go *:history*:notes"
@@ -170,8 +172,12 @@ git_prompt_info () {
 PATH=$HOME/bin/:$PATH
 
 # Load RVM
-export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Load asdf
+[[ -s "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
+[[ -s "$HOME/.asdf/completions/asdf.bash" ]] && source "$HOME/.asdf/completions/asdf.bash"
 
 # Load NVM
 export NVM_DIR="$HOME/.nvm"

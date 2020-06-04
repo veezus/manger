@@ -4,6 +4,7 @@
 --exclude=tmp
 --exclude=node_modules
 --exclude=gulp
+--exclude=*.rb
 
 --languages=-javascript,sql
 
