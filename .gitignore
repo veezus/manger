@@ -6,7 +6,6 @@ tags
 tests
 .DS_Store
 environments
-.nvmrc
 node_modules
 .projections.json
 .ruby-gemset
