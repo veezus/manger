@@ -10,6 +10,7 @@ alias jtags="ctags -R app config lib && sed -i '' -E '/^(if|switch|function|modu
 alias heroku="time heroku"
 alias ll="ls -lahF"
 alias make="time make"
+alias notes="vi -O ~/code/notes/notes ~/code/notes/archive"
 alias rails="time bundle exec rails"
 alias rake="time bundle exec rake"
 alias rspec="time bundle exec rspec"
