@@ -57,7 +57,9 @@ noremap!          <F1>   <Esc>
 " copy selected line
 vmap <Leader>c :w !pbcopy<CR>
 " grep for word under cursor
-nnoremap <Leader>f :grep <cword> -r app lib config features spec vendor<CR><CR><CR>
+" nnoremap <Leader>f :grep <cword> -r app lib config features spec vendor<CR><CR><CR>
+" Fuzzy find
+nnoremap <Leader>f :Files<CR>
 
 " timestamps for daily log
 nmap <Leader>tg o<Esc>"=strftime("%H:%M")<CR>pa -  
