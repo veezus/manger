@@ -1,9 +1,12 @@
 --exclude=.git
 --exclude=.hg
+
 --exclude=log
 --exclude=tmp
+--exclude=public
 --exclude=node_modules
 --exclude=gulp
+
 --exclude=*.rb
 
 --languages=-javascript,sql
