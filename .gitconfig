@@ -2,7 +2,7 @@
   name = "Veezus Kreist"
   email = "almighty@veez.us"
 [alias]
-  ap = add -p
+  # Daily use
   b = branch
   c = commit
   co = checkout
@@ -10,9 +10,6 @@
   d = diff
   dc = diff --cached
   lg = log --graph --oneline --decorate --color --all --tags
-  me = merge
-  mf = merge --squash
-  no = show --name-only
   pm = push manger HEAD
   pr = pull --rebase
   put = push origin HEAD
@@ -20,13 +17,8 @@
   rc = rebase --continue
   reauthor = commit --amend --reset-author -CHEAD
   s = status
-  st = status
-  squash = merge --squash
-  sync = !sh -c '(git fetch -p && git branch --merged | grep -v "\\*" | grep -v 'master' | grep -v 'develop' | xargs -n1 git branch -d)' -
-  track = --set-upstream-to
-  bn = !"git name-rev HEAD --name-only | tr -d \"\n\" | pbcopy && echo $(git name-rev HEAD --name-only)"
-  sha = !"git rev-parse HEAD | tr -d \"\n\" | pbcopy && echo $(git rev-parse HEAD)"
-
+  # Don't want to toss yet
+  no = show --name-only
 [color]
   ui = true
 [core]
