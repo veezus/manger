@@ -19,6 +19,7 @@
   s = status
   # Don't want to toss yet
   no = show --name-only
+  w = switch
 [color]
   ui = true
 [core]
