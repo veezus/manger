@@ -19,7 +19,7 @@ hi Visual term=reverse cterm=reverse
 set backspace=indent,eol,start  " allow removing indents and line breaks
 set visualbell
 set number
-" set mouse=a
+set mouse=n                     " only in normal mode
 set t_Co=256
 
 colors ir_black
