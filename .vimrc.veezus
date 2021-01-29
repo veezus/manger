@@ -27,6 +27,7 @@ set t_Co=256
 
 colors ir_black
 let g:airline_theme='violet'
+let g:airline_section_b = ''
 
 augroup spacesovertabs
   autocmd FileType c,css,eruby,gitconfig,javascript,json,haml,html,ruby,sass,scss,sh,sql,sshconfig,text,vim,vue
