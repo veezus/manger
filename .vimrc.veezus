@@ -22,6 +22,9 @@ set number
 set t_Co=256
 " set mouse=n                     " only in normal mode
 
+" Load plugin help files
+:Helptags
+
 colors ir_black
 let g:airline_theme='violet'
 
