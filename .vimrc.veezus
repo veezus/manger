@@ -19,8 +19,8 @@ hi Visual term=reverse cterm=reverse
 set backspace=indent,eol,start  " allow removing indents and line breaks
 set visualbell
 set number
-set mouse=n                     " only in normal mode
 set t_Co=256
+" set mouse=n                     " only in normal mode
 
 colors ir_black
 let g:airline_theme='violet'
