@@ -29,6 +29,12 @@ colors ir_black
 let g:airline_theme='violet'
 let g:airline_section_b = ''
 
+let g:fold_rspec_foldenable = 0          " disables folding (toggle with `zi`)
+let g:fold_rspec_foldlevel = 2           " sets initial open/closed state of all folds (open unless nested more than two levels deep)
+let g:fold_rspec_default_foldcolumn = 4  " shows a 4-character column on the lefthand side of the window displaying the document's fold structure
+let g:fold_rspec_foldclose = 'all'       " closes folds automatically when the cursor is moved out of them (only applies to folds deeper than 'foldlevel')
+let g:fold_rspec_foldminlines = 3        " disables closing of folds containing two lines or fewer
+
 augroup spacesovertabs
   autocmd FileType c,css,eruby,gitconfig,javascript,json,haml,html,ruby,sass,scss,sh,sql,sshconfig,text,vim,vue
         \ setlocal autoindent shiftwidth=2 softtabstop=2 expandtab tabstop=2
