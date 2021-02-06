@@ -19,6 +19,7 @@ alias tags="ctags -R . --exclude=*.rb && ripper-tags -Ra"
 alias today="vi ~/Dropbox/daily_log.txt"
 alias todo="vi ~/Dropbox/todo.txt"
 alias vi="vim"
+alias whosbeeneatingmycookies="git whosbeeneatingmycookies | column -ts$'\t'"
 
 # rubygems single-gem search
 function gems {
