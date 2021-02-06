@@ -20,8 +20,7 @@
   reauthor = commit --amend --reset-author -CHEAD
   s = status
   sync = !sh -c '(git fetch -p && git branch --merged | grep -v "\\*" | grep -v 'master' | grep -v 'develop' | xargs -n1 git branch -d)' -
-  # Don't want to toss yet
-  no = show --name-only
+  no = diff --name-only
   w = switch
 [color]
   ui = true
