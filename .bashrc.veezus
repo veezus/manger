@@ -58,7 +58,7 @@ export LANG=en_US.utf-8
 # History configuration
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=20000
-export HISTIGNORE="fg*:code *:go *:history*:notes"
+export HISTIGNORE="fg*:code *:history*:notes"
 shopt -s histappend
 # Append this session's history to the global session as each command is
 # executed
@@ -68,8 +68,8 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 # `go` allows autocompletion of and navigation to directories within the code
 # directory
-[ -e "$GO_DIR" ] || GO_DIR="$HOME/code"
-export GO_DIR
+[ -e "$CODE_DIR" ] || CODE_DIR="$HOME/code"
+export CODE_DIR
 
 # `repo` creates a repository on the manger machine
 repo() {
@@ -85,30 +85,19 @@ repo() {
 # `code` creates or attaches to and existing tmux session for repositories in
 # the code directory
 code() {
-  cd "$GO_DIR/$1"
+  cd "$CODE_DIR/$1"
   tmux attach -t $1 || tmux new -s $1
 }
 
-go() {
-  case $1 in
-    buildkite)
-      cd "/usr/local/var/buildkite-agent/builds/luke.local-1/adorable"
-      ;;
-    *)
-      cd "$GO_DIR/$1"
-      ;;
-  esac
-}
-
-_go()
+_autocomplete_code()
 {
   local cur projects
 
-  [ -r "$GO_DIR" ] || return 0
+  [ -r "$CODE_DIR" ] || return 0
 
   eval 'COMPREPLY=()'
   cur=${COMP_WORDS[COMP_CWORD]}
-  projects=$(\ls "$GO_DIR")
+  projects=$(\ls "$CODE_DIR")
 
   if [ $COMP_CWORD -eq 1 ]; then
     eval 'COMPREPLY=( $(compgen -o filenames -W "$projects" $cur) )'
@@ -116,8 +105,7 @@ _go()
 
   return 0
 }
-complete -F _go code
-complete -F _go go
+complete -F _autocomplete_code code
 
 # lifted from dotmatrix http://github.com/hashrocket/dotmatrix
 git_prompt_info () {
