@@ -15,6 +15,7 @@ alias rails="time bundle exec rails"
 alias rake="time bundle exec rake"
 alias reflect="vi ~/Dropbox/reflect.txt"
 alias rspec="time bundle exec rspec"
+alias rubochanged='git diff --name-only --diff-filter=ACMRTUXB develop "***.rb" | xargs rubocop -A'
 alias tags="ctags -R . --exclude=*.rb && ripper-tags -Ra"
 alias today="vi ~/Dropbox/daily_log.txt"
 alias todo="vi ~/Dropbox/todo.txt"
