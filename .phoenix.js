@@ -32,38 +32,61 @@ let halfLeft = new Key('left', ['alt'], function () {
     });
 });
 
-let bigRight = new Key('right', ['alt', 'shift'], function () {
-  let screen = Screen.main().flippedVisibleFrame();
-  let window = Window.focused();
-  let spacer = screen.width / 10;
-
-  if (window)
-    window.setFrame({
-      x: screen.width * 0.20,
-      y: 0,
-      height: screen.height,
-      width: screen.width * 0.80,
-    });
-});
-
 let halfRight = new Key('right', ['alt'], function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
-  let yMargin = 50;
+  let yMargin = 0;
   let height = screen.height - yMargin;
   let xMargin = 1200;
   let width = screen.width - xMargin;
 
   if (window)
     window.setFrame({
-      y: yMargin / 2 + 23, // 23px is height of menu bar
+      y: 0,
       x: xMargin,
       height: height,
       width: width,
     });
 });
 
+let meet = new Key('m', ['alt', 'shift'], function () {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  let yMargin = 500;
+  let height = screen.height - yMargin;
+  let xMargin = 2000;
+  let width = screen.width - xMargin;
+
+  if (window)
+    window.setFrame({
+      y: yMargin + 23, // 23px is height of menu bar
+      x: xMargin,
+      height: height,
+      width: width,
+    });
+});
+
+// square center
 let middle = new Key('down', ['alt'], function () {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  // let yMargin = screen.width / 20;
+  // let xMargin = screen.height / 10;
+  let yMargin = 400;
+  let height = screen.height - yMargin;
+  let xMargin = 1500;
+  let width = screen.width - xMargin;
+
+  if (window)
+    window.setFrame({
+      y: (yMargin / 2) + 100,
+      x: xMargin / 2,
+      height: height,
+      width: width,
+    });
+});
+
+let centerTall = new Key('c', ['alt'], function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   // let yMargin = screen.width / 20;
@@ -75,27 +98,42 @@ let middle = new Key('down', ['alt'], function () {
 
   if (window)
     window.setFrame({
-      y: 0, // 23px is height of menu bar
+      y: 0,
       x: xMargin / 2,
       height: height,
       width: width,
     });
 });
 
-let middleHigh = new Key('down', ['alt', 'shift'], function () {
+let generalUseMiddle = new Key('down', ['alt', 'shift'], function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
-  // let yMargin = screen.width / 20;
-  // let xMargin = screen.height / 10;
   let yMargin = 500;
   let height = screen.height - yMargin;
-  let xMargin = 1500;
+  let xMargin = 1200;
   let width = screen.width - xMargin;
 
   if (window)
     window.setFrame({
-      y: 0, // 23px is height of menu bar
+      y: yMargin / 2, // 23px is height of menu bar
       x: xMargin / 2,
+      height: height,
+      width: width,
+    });
+});
+
+let generalUseRight = new Key('right', ['alt', 'shift'], function () {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  let yMargin = 500;
+  let height = screen.height - yMargin;
+  let xMargin = 1200;
+  let width = screen.width - xMargin;
+
+  if (window)
+    window.setFrame({
+      y: yMargin / 2, // 23px is height of menu bar
+      x: xMargin,
       height: height,
       width: width,
     });

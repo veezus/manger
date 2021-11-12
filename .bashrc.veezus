@@ -1,13 +1,14 @@
-export EDITOR=vim
-
 # user:pwd(branch)$
 [ -z "$PS1" ] || export PS1="\[\033[01;97m\]\h\[\033[00m\]:\[\033[0;37m\]\w\[\033[00m\]\$(git_prompt_info '(%s)')$ "
 
 alias be="bundle exec"
+alias changed='git diff --name-only --diff-filter=ACMRTUXB develop'
+alias coauth='printf "Co-authored-by: %s" "$(git log --pretty=format:"%an <%ae>" -1000 | sort | uniq | fzf)" | pbcopy'
 alias dose="docker-compose"
 alias g="git"
 alias jtags="ctags -R app config lib && sed -i '' -E '/^(if|switch|function|module\.exports|it|describe).+language:js$/d' tags"
 alias heroku="time heroku"
+alias k="kubectl"
 alias ll="ls -lahF"
 alias make="time make"
 alias notes="vi -O ~/code/notes/notes ~/code/notes/archive"
@@ -15,7 +16,8 @@ alias rails="time bundle exec rails"
 alias rake="time bundle exec rake"
 alias reflect="vi ~/Dropbox/reflect.txt"
 alias rspec="time bundle exec rspec"
-alias rubochanged='git diff --name-only --diff-filter=ACMRTUXB develop "***.rb" | xargs rubocop -A'
+alias rubochanged='changed "./***.rb" | xargs rubocop -A'
+alias specchanged='changed "./***_spec.rb" | xargs rspec'
 alias tags="ctags -R . --exclude=*.rb && ripper-tags -Ra"
 alias today="vi ~/Dropbox/daily_log.txt"
 alias todo="vi ~/Dropbox/todo.txt"
@@ -25,23 +27,6 @@ alias whosbeeneatingmycookies="git whosbeeneatingmycookies | column -ts$'\t'"
 # rubygems single-gem search
 function gems {
   gem search -ra $1|grep "^$1 "
-}
-
-function vol {
-  case $1 in
-    m)
-      sudo osascript -e "set Volume 0"
-      ;;
-    n)
-      sudo osascript -e "set Volume 0.5"
-      ;;
-    l)
-      sudo osascript -e "set Volume 1.5"
-      ;;
-    *)
-      sudo osascript -e "set Volume $1"
-      ;;
-  esac
 }
 
 function tags {

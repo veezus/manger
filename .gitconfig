@@ -22,7 +22,7 @@
   sync = !sh -c '(git fetch -p && git branch --merged | grep -v "\\*" | grep -v 'master' | grep -v 'develop' | xargs -n1 git branch -d)' -
   no = diff --name-only
   w = switch
-  whosbeeneatingmycookies = for-each-ref --sort=-committerdate --count=20 refs/remotes/ --format='%(committerdate:short)\t%(refname:short)\t%(subject)\t%(authorname)'
+  whosbeeneatingmycookies = for-each-ref --sort=-committerdate --count=60 refs/remotes/ --format='%(committerdate:short)\t%(refname:short)\t%(subject)\t%(authorname)'
 [color]
   ui = true
 [core]

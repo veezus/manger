@@ -1,11 +1,12 @@
 set encoding=utf-8
-set tw=120                      " Wrap at 120 characters
+set tw=90                       " Wrap at 90 characters
 set fo=cq                       " Don't autowrap
 set incsearch                   " incremental search
 set laststatus=2                " show a status bar at the bottom of each window
 set ruler
-set list                        " show tabs as arrows and trailing spaces as dash
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<
+" set list                        " show tabs as arrows and trailing spaces as dash
+" set listchars=trail:-,extends:>,precedes:<
+" set listchars=tab:>\ ,trail:-,extends:>,precedes:<
 set showcmd                     " shows partial commands in the lower right
 set showmatch                   " blink opening parens when closing
 set wildmenu                    " allow tab to cycle through found options
@@ -25,15 +26,15 @@ set t_Co=256
 " Load plugin help files
 :Helptags
 
-colors ir_black
+" colors ir_black
 let g:airline_theme='violet'
 let g:airline_section_b = ''
 
-let g:fold_rspec_foldenable = 0          " disables folding (toggle with `zi`)
-let g:fold_rspec_foldlevel = 2           " sets initial open/closed state of all folds (open unless nested more than two levels deep)
+let g:fold_rspec_foldenable = 1          " disables folding (toggle with `zi`)
+let g:fold_rspec_foldlevel = 4           " sets initial open/closed state of all folds (open unless nested more than four levels deep)
 let g:fold_rspec_default_foldcolumn = 4  " shows a 4-character column on the lefthand side of the window displaying the document's fold structure
-let g:fold_rspec_foldclose = 'all'       " closes folds automatically when the cursor is moved out of them (only applies to folds deeper than 'foldlevel')
 let g:fold_rspec_foldminlines = 3        " disables closing of folds containing two lines or fewer
+" let g:fold_rspec_foldclose = 'all'       " closes folds automatically when the cursor is moved out of them (only applies to folds deeper than 'foldlevel')
 
 augroup spacesovertabs
   autocmd FileType c,css,eruby,gitconfig,javascript,json,haml,html,ruby,sass,scss,sh,sql,sshconfig,text,vim,vue
