@@ -40,6 +40,7 @@ if ! [ -z "$PS1" ]; then
   bind '"\en": history-search-forward'
 fi
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export LANG=en_US.utf-8
 # History configuration
 export HISTCONTROL=ignoredups:erasedups

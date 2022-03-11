@@ -1,5 +1,5 @@
 set encoding=utf-8
-set tw=90                       " Wrap at 90 characters
+set tw=100                      " Wrap at 100 characters
 set fo=cq                       " Don't autowrap
 set incsearch                   " incremental search
 set laststatus=2                " show a status bar at the bottom of each window
