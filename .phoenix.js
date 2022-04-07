@@ -66,6 +66,36 @@ let meet = new Key('m', ['alt', 'shift'], function () {
     });
 });
 
+let notObsidian = new Key('o', ['alt', 'shift'], function () {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  let width = screen.width - 1200;
+  let height = screen.height; // full height, excludes menubar height
+
+  if (window)
+    window.setFrame({
+      y: 23, // 23px is height of menu bar
+      x: 1200,
+      height: height,
+      width: width,
+    });
+});
+
+let obsidian = new Key('o', ['alt'], function () {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  let width = 1200;
+  let height = screen.height; // full height, excludes menubar height
+
+  if (window)
+    window.setFrame({
+      y: 23, // 23px is height of menu bar
+      x: 0,
+      height: height,
+      width: width,
+    });
+});
+
 // square center
 let middle = new Key('down', ['alt'], function () {
   let screen = Screen.main().flippedVisibleFrame();
