@@ -94,7 +94,6 @@ function _vim_bundle {
   _install_bundle posva vim-vue
   _install_bundle slim-template vim-slim
   _install_bundle vimwiki vimwiki
-  _install_bundle rlue vim-fold-rspec
 
   # Project management
   _install_bundle adamlowe vim-slurper
