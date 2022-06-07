@@ -27,8 +27,40 @@ set t_Co=256
 :Helptags
 
 " colors ir_black
-let g:airline_theme='violet'
-let g:airline_section_b = ''
+
+" *line configuration
+" let g:airline_theme='violet'
+" let g:airline_section_b = ''
+let g:lightline = {
+  \ 'colorscheme': 'ayu_mirage',
+  \ 'active': {
+  \   'right': [ [ 'syntastic', 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'gitbranch' ] ],
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'coloredrelpath', 'readonly', 'modified' ] ],
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'FugitiveHead',
+  \ },
+  \ 'component': {
+  \   'coloredrelpath': '%#Path#%{get(PathText(),0)}%#CurrentFile#%{get(PathText(),1)}'
+  \ }
+  \ }
+function! PathText()
+  let file = split(expand('%:f'), '/')
+  let map = { 'V': 'n', "\<C-v>": 'n', 's': 'n', 'v': 'n', "\<C-s>": 'n', 'c': 'n', 'R': 'n'}
+  let mode = get(map, mode()[0], mode()[0])
+  "add last two chars in bgcolor to hex codes below with a 00 for darkmode
+  let bgcolor = {'n': [240, '#232932'], 'i': [31, '#232932']}
+  let color = get(bgcolor, mode, bgcolor.n)
+  exe printf('hi Path ctermfg=196 ctermbg=%d guifg=#5e6f7f guibg=%s term=bold cterm=bold',
+  \ color[0], color[1])
+  exe printf('hi CurrentFile ctermfg=248 ctermbg=%d guifg=#ffffff guibg=%s term=bold cterm=bold',
+  \ color[0], color[1])
+  return len(file) > 0 ? [join(file[0:-2], '/') . (len(file) == 1 ? '' : '/'), file[-1]] : ['', '[No Name]']
+endfunction
+  \ }
 
 let g:fold_rspec_foldenable = 1          " disables folding (toggle with `zi`)
 let g:fold_rspec_foldlevel = 4           " sets initial open/closed state of all folds (open unless nested more than four levels deep)
