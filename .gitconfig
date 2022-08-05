@@ -1,6 +1,6 @@
 [user]
   name = "Veez Remsik"
-  email = "mremsik@weedmaps.com"
+  email = "almighty@veez.us"
 [pull]
   ff = "only"
 [alias]
@@ -47,3 +47,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	defaultBranch = main
