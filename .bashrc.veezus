@@ -11,16 +11,11 @@ alias heroku="time heroku"
 alias k="kubectl"
 alias ll="ls -lahF"
 alias make="time make"
-alias notes="vi -O ~/code/notes/notes ~/code/notes/archive"
 alias rails="time bundle exec rails"
 alias rake="time bundle exec rake"
-alias reflect="vi ~/Dropbox/reflect.txt"
 alias rspec="time bundle exec rspec"
 alias rubochanged='changed "./***.rb" | xargs rubocop -A'
 alias specchanged='changed "./***_spec.rb" | xargs rspec'
-alias tags="ctags -R . --exclude=*.rb && ripper-tags -Ra"
-alias today="vi ~/Dropbox/daily_log.txt"
-alias todo="vi ~/Dropbox/todo.txt"
 alias vi="vim"
 alias whosbeeneatingmycookies="git whosbeeneatingmycookies | column -ts$'\t'"
 
@@ -51,8 +46,6 @@ shopt -s histappend
 # Append this session's history to the global session as each command is
 # executed
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
-# Enable IEx history via Erlang
-export ERL_AFLAGS="-kernel shell_history enabled"
 
 # `go` allows autocompletion of and navigation to directories within the code
 # directory
