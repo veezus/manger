@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source_dir=`pwd`
-dotfiles=".bashrc .bashrc.veezus .ctags .gemrc .gitconfig .gitignore .hyper.js .phoenix.js .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
+dotfiles=".bashrc .bashrc.veezus .ctags .gemrc .gitconfig .gitignore .phoenix.js .ssh/config .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
 executables="bin/manger bin/untilfail"
 
 function _link {
