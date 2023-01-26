@@ -162,7 +162,7 @@ let generalUseRight = new Key('right', ['alt', 'shift'], function () {
 
   if (window)
     window.setFrame({
-      y: yMargin / 2, // 23px is height of menu bar
+      y: yMargin + 23,
       x: xMargin,
       height: height,
       width: width,
