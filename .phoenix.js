@@ -1,21 +1,4 @@
-let width = 1920;
-let height = 1080;
-
-let bigLeft = new Key('left', ['alt', 'shift'], function () {
-  let screen = Screen.main().flippedVisibleFrame();
-  let window = Window.focused();
-  let spacer = screen.width / 10;
-
-  if (window)
-    window.setFrame({
-      x: 0,
-      y: 0,
-      height: screen.height,
-      width: screen.width * 0.83,
-    });
-});
-
-let halfLeft = new Key('left', ['alt'], function () {
+let halfLeft = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let yMargin = 0;
@@ -30,9 +13,9 @@ let halfLeft = new Key('left', ['alt'], function () {
       height: height,
       width: width,
     });
-});
+}
 
-let halfRight = new Key('right', ['alt'], function () {
+let halfRight = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let yMargin = 0;
@@ -47,9 +30,9 @@ let halfRight = new Key('right', ['alt'], function () {
       height: height,
       width: width,
     });
-});
+};
 
-let meet = new Key('m', ['alt', 'shift'], function () {
+let meet = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let yMargin = 300;
@@ -64,9 +47,9 @@ let meet = new Key('m', ['alt', 'shift'], function () {
       height: height,
       width: width,
     });
-});
+};
 
-let notObsidian = new Key('o', ['alt', 'shift'], function () {
+let notObsidian = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let width = screen.width - 1080;
@@ -79,9 +62,9 @@ let notObsidian = new Key('o', ['alt', 'shift'], function () {
       height: height,
       width: width,
     });
-});
+};
 
-let obsidian = new Key('o', ['alt'], function () {
+let obsidian = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let width = 1080;
@@ -94,10 +77,9 @@ let obsidian = new Key('o', ['alt'], function () {
       height: height,
       width: width,
     });
-});
+};
 
-// square center
-let middle = new Key('down', ['alt'], function () {
+let smallMiddle = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   // let yMargin = screen.width / 20;
@@ -114,9 +96,9 @@ let middle = new Key('down', ['alt'], function () {
       height: height,
       width: width,
     });
-});
+};
 
-let centerTall = new Key('c', ['alt'], function () {
+let centerTall = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   // let yMargin = screen.width / 20;
@@ -133,9 +115,9 @@ let centerTall = new Key('c', ['alt'], function () {
       height: height,
       width: width,
     });
-});
+};
 
-let generalUseMiddle = new Key('down', ['alt', 'shift'], function () {
+let bigMiddle = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let yMargin = 500;
@@ -150,9 +132,9 @@ let generalUseMiddle = new Key('down', ['alt', 'shift'], function () {
       height: height,
       width: width,
     });
-});
+};
 
-let generalUseRight = new Key('right', ['alt', 'shift'], function () {
+let generalUseRight = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let yMargin = 500;
@@ -167,9 +149,9 @@ let generalUseRight = new Key('right', ['alt', 'shift'], function () {
       height: height,
       width: width,
     });
-});
+};
 
-let fullsize = new Key('up', ['alt'], function () {
+let fullsize = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
 
@@ -180,4 +162,17 @@ let fullsize = new Key('up', ['alt'], function () {
       height: screen.height,
       width: screen.width,
     });
-});
+};
+
+let hyper = ['alt', 'ctrl', 'cmd', 'shift']
+new Key('c', ['alt'], centerTall);
+new Key('down', ['alt', 'shift'], bigMiddle);
+new Key('down', ['alt'], smallMiddle);
+new Key('left', ['alt'], halfLeft);
+new Key('m', ['alt', 'shift'], meet);
+new Key('o', ['alt', 'shift'], notObsidian);
+new Key('o', ['alt'], obsidian);
+new Key('right', ['alt', 'shift'], generalUseRight);
+new Key('right', ['alt'], halfRight);
+new Key('up', ['alt'], fullsize);
+new Key('up', hyper, fullsize);
