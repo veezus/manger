@@ -165,14 +165,14 @@ let fullsize = function () {
 };
 
 let hyper = ['alt', 'ctrl', 'cmd', 'shift']
-new Key('c', ['alt'], centerTall);
-new Key('down', ['alt', 'shift'], bigMiddle);
-new Key('down', ['alt'], smallMiddle);
-new Key('left', ['alt'], halfLeft);
-new Key('m', ['alt', 'shift'], meet);
-new Key('o', ['alt', 'shift'], notObsidian);
-new Key('o', ['alt'], obsidian);
-new Key('right', ['alt', 'shift'], generalUseRight);
-new Key('right', ['alt'], halfRight);
-new Key('up', ['alt'], fullsize);
-new Key('up', hyper, fullsize);
+
+let btnCenterTall = new Key('c', ['alt'], centerTall);
+let btnBigMiddle = new Key('down', ['alt', 'shift'], bigMiddle);
+let btnSmallMiddle = new Key('down', ['alt'], smallMiddle);
+let btnHalfLeft = new Key('left', ['alt'], halfLeft);
+let btnMeet = new Key('m', ['alt', 'shift'], meet);
+let btnNotObsidian = new Key('o', ['alt', 'shift'], notObsidian);
+let btnObsidian = new Key('o', ['alt'], obsidian);
+let btnGeneralUseRight = new Key('right', ['alt', 'shift'], generalUseRight);
+let btnHalfRight = new Key('right', ['alt'], halfRight);
+let btnFullsize = new Key('up', ['alt'], fullsize);
