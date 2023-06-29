@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source_dir=`pwd`
-dotfiles=".bashrc .bashrc.veezus .ctags .gemrc .gitconfig .gitignore .phoenix.js .ssh/config .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
+dotfiles=".zshrc .zshrc.veezus .ctags .gemrc .gitconfig .gitignore .phoenix.js .ssh/config .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
 executables="bin/manger bin/untilfail"
 
 function _link {
@@ -124,5 +124,3 @@ case $1 in
     echo "You may also install vim dependencies with vimbundle or vimrebundle"
     ;;
 esac
-
-# vim:ft=bash:

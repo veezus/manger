@@ -1,0 +1,83 @@
+alias be="bundle exec"
+alias changed='git diff --name-only --diff-filter=ACMRTUXB develop'
+alias coauth='printf "Co-authored-by: %s" "$(git log --pretty=format:"%an <%ae>" -1000 | sort | uniq | fzf)" | pbcopy'
+alias dose="docker-compose"
+alias g="git"
+alias jtags="ctags -R app config lib && sed -i '' -E '/^(if|switch|function|module\.exports|it|describe).+language:js$/d' tags"
+alias heroku="time heroku"
+alias k="kubectl"
+alias ll="ls -lahF"
+alias make="time make"
+alias rails="time bundle exec rails"
+alias rake="time bundle exec rake"
+alias rspec="time bundle exec rspec"
+alias rubochanged='changed "./***.rb" | xargs rubocop -A'
+alias specchanged='changed "./***_spec.rb" | xargs rspec'
+alias vi="vim"
+alias whosbeeneatingmycookies="git whosbeeneatingmycookies | column -ts$'\t'"
+
+export EDITOR=vim
+export LANG=en_US.utf-8
+
+# rubygems single-gem search
+function gems {
+  gem search -ra $1|grep "^$1 "
+}
+
+function tags {
+  ctags -R . --exclude=*.rb
+  ripper-tags -Ra
+}
+
+# user:pwd(branch)$
+# [ -z "$PS1" ] || export PS1="\[\033[01;97m\]\h\[\033[00m\]:\[\033[0;37m\]\w\[\033[00m\]\$(git_prompt_info '(%s)')$ "
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '(%b) '
+setopt PROMPT_SUBST
+PROMPT='%B%n@%m%b %F{243}%*%f %F{039}%~%f %F{171}${vcs_info_msg_0_}%f$ '
+
+# `code` creates or attaches to an existing tmux session for repositories in
+# the code directory
+[ -e "$CODE_DIR" ] || CODE_DIR="$HOME/code"
+export CODE_DIR
+code() {
+  cd "$CODE_DIR/$1"
+  tmux attach -t $1 || tmux new -s $1
+}
+
+_autocomplete_code()
+{
+  local cur projects
+
+  [ -r "$CODE_DIR" ] || return 0
+
+  eval 'COMPREPLY=()'
+  cur=${COMP_WORDS[COMP_CWORD]}
+  projects=$(\ls "$CODE_DIR")
+
+  if [ $COMP_CWORD -eq 1 ]; then
+    eval 'COMPREPLY=( $(compgen -o filenames -W "$projects" $cur) )'
+  fi
+
+  return 0
+}
+complete -F _autocomplete_code code
+
+# Add manger executables to PATH
+PATH=$HOME/bin/:$PATH
+
+# Add project-local node_module executables to PATH
+export PATH="$PATH:./node_modules/.bin"
+
+# Load homebrew
+[ -e "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Load asdf from either install method
+[[ -s "$HOME/.asdf/asdf.sh" ]] && source "$HOME/.asdf/asdf.sh"
+[[ -s "$HOME/.asdf/completions/asdf.bash" ]] && source "$HOME/.asdf/completions/asdf.bash"
+[[ -s "/opt/homebrew/opt/asdf/libexec/asdf.sh" ]] && source "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+
+# Load a machine-specific .zshrc if present
+[ -e "$HOME/.zshrc.local" ] && . "$HOME/.zshrc.local"
+
