@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 source_dir=`pwd`
-dotfiles=".zshrc .zshrc.veezus .ctags .gemrc .gitconfig .gitignore .phoenix.js .ssh/config .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus"
-executables="bin/manger bin/untilfail"
+dotfiles=(.zshrc .zshrc.veezus .ctags .gemrc .gitconfig .gitignore .phoenix.js .ssh/config .tmux.conf .tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus)
+executables=(bin/manger bin/untilfail)
 
 function _link {
   for file in $dotfiles; do
