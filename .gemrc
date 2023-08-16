@@ -7,5 +7,5 @@
 :verbose: true
 :concurrent_downloads: 8
 gem: "--no-ri --no-rdoc --no-document --suggestions"
-install: "--no-ri --no-rdoc --suggestions --document=yri"
+install: "--no-ri --no-rdoc --no-document --suggestions"
 update: "--no-ri --no-rdoc --no-document --suggestions"

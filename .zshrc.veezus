@@ -34,15 +34,26 @@ setopt NO_CASE_GLOB
 
 # History configuration
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+HISTORY_IGNORE='(fg)'
 HISTSIZE=10000
 SAVEHIST=5000
+
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
+
+zshaddhistory() {
+  emulate -L zsh
+  ## uncomment if HISTORY_IGNORE
+  ## should use EXTENDED_GLOB syntax
+  # setopt extendedglob
+  [[ $1 != ${~HISTORY_IGNORE} ]]
+}
 
 # Correct misspellings
 setopt CORRECT
