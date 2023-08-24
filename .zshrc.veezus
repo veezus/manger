@@ -55,9 +55,9 @@ zshaddhistory() {
   [[ $1 != ${~HISTORY_IGNORE} ]]
 }
 
-# Correct misspellings
-setopt CORRECT
-setopt CORRECT_ALL
+# Correct misspellings. Ugh, actually, it autocorrects incessantly and incorrectly.
+# setopt CORRECT
+# setopt CORRECT_ALL
 
 # `gems` performs a rubygems single-gem search
 gems() {
