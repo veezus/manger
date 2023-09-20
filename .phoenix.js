@@ -32,22 +32,20 @@ let halfRight = function () {
     });
 };
 
-let meet = function () {
+let musicPodcasts = function() {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
-  let yMargin = 300;
-  let height = screen.height - yMargin;
-  let xMargin = 1500;
-  let width = screen.width - xMargin;
+  let width = 1140;
+  let height = 650; // full height, excludes menubar height
 
   if (window)
     window.setFrame({
-      y: yMargin + 23, // 23px is height of menu bar
-      x: xMargin,
+      y: 0,
+      x: screen.width - width,
       height: height,
       width: width,
     });
-};
+}
 
 let notObsidian = function () {
   let screen = Screen.main().flippedVisibleFrame();
@@ -170,7 +168,7 @@ let btnCenterTall = new Key('c', ['alt'], centerTall);
 let btnBigMiddle = new Key('down', ['alt', 'shift'], bigMiddle);
 let btnSmallMiddle = new Key('down', ['alt'], smallMiddle);
 let btnHalfLeft = new Key('left', ['alt'], halfLeft);
-let btnMeet = new Key('m', ['alt', 'shift'], meet);
+let btnMusicPodcasts = new Key('m', ['alt'], musicPodcasts);
 let btnNotObsidian = new Key('o', ['alt', 'shift'], notObsidian);
 let btnObsidian = new Key('o', ['alt'], obsidian);
 let btnGeneralUseRight = new Key('right', ['alt', 'shift'], generalUseRight);
