@@ -36,12 +36,27 @@ let musicPodcasts = function() {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let width = 1140;
-  let height = 650; // full height, excludes menubar height
+  let height = 650;
 
   if (window)
     window.setFrame({
       y: 0,
       x: screen.width - width,
+      height: height,
+      width: width,
+    });
+}
+
+let clock = function() {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  let width = 500;
+  let height = 550;
+
+  if (window)
+    window.setFrame({
+      y: 0,
+      x: (screen.width - 400 - width) / 2,
       height: height,
       width: width,
     });
@@ -164,11 +179,12 @@ let fullsize = function () {
 
 let hyper = ['alt', 'ctrl', 'cmd', 'shift']
 
-let btnCenterTall = new Key('c', ['alt'], centerTall);
+// let btnCenterTall = new Key('c', ['alt'], centerTall);
 let btnBigMiddle = new Key('down', ['alt', 'shift'], bigMiddle);
 let btnSmallMiddle = new Key('down', ['alt'], smallMiddle);
 let btnHalfLeft = new Key('left', ['alt'], halfLeft);
 let btnMusicPodcasts = new Key('m', ['alt'], musicPodcasts);
+let btnClock = new Key('c', ['alt'], clock);
 let btnNotObsidian = new Key('o', ['alt', 'shift'], notObsidian);
 let btnObsidian = new Key('o', ['alt'], obsidian);
 let btnGeneralUseRight = new Key('right', ['alt', 'shift'], generalUseRight);
