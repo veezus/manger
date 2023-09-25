@@ -56,7 +56,7 @@ let clock = function() {
   if (window)
     window.setFrame({
       y: 0,
-      x: (screen.width - 100 - width) / 2,
+      x: (screen.width - 220 - width) / 2,
       height: height,
       width: width,
     });
