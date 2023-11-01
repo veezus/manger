@@ -14,6 +14,10 @@ function _link {
     fi
   done
 
+  if [ ! -e $HOME/bin ]; then
+    `mkdir $HOME/bin`
+  fi
+
   for file in $executables; do
     if [ -e $HOME/$file ]; then
       echo "Skipping existing $file"
