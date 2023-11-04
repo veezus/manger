@@ -1,5 +1,5 @@
 alias be="bundle exec"
-alias changed='git diff --name-only --diff-filter=ACMRTUXB develop'
+alias changed='git diff --name-only --diff-filter=ACMRTUXB main'
 alias coauth='printf "Co-authored-by: %s" "$(git log --pretty=format:"%an <%ae>" -1000 | sort | uniq | fzf)" | pbcopy'
 alias dose="docker-compose"
 alias g="git"
