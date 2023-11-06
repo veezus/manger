@@ -3,7 +3,7 @@ let halfLeft = function () {
   let window = Window.focused();
   let yMargin = 0;
   let height = screen.height - yMargin;
-  let xMargin = 600;
+  let xMargin = screen.width / 4.27;
   let width = screen.width - xMargin;
 
   if (window)
@@ -20,7 +20,7 @@ let halfRight = function () {
   let window = Window.focused();
   let yMargin = 0;
   let height = screen.height - yMargin;
-  let xMargin = 800;
+  let xMargin = screen.width / 3.2;
   let width = screen.width - xMargin;
 
   if (window)
@@ -32,6 +32,7 @@ let halfRight = function () {
     });
 };
 
+// Pretty much display only
 let musicPodcasts = function() {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
@@ -41,7 +42,7 @@ let musicPodcasts = function() {
   if (window)
     window.setFrame({
       y: 0,
-      x: screen.width - width,
+      x: screen.width - 380 - width,
       height: height,
       width: width,
     });
@@ -97,9 +98,10 @@ let smallMiddle = function () {
   let window = Window.focused();
   // let yMargin = screen.width / 20;
   // let xMargin = screen.height / 10;
-  let yMargin = 200;
+  console.log('screen', screen)
+  let yMargin = screen.height / 7.075;
   let height = screen.height - yMargin;
-  let xMargin = 500;
+  let xMargin = screen.width / 5.12;
   let width = screen.width - xMargin;
 
   if (window)
@@ -133,14 +135,15 @@ let centerTall = function () {
 let bigMiddle = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
-  let yMargin = 500;
+  console.log('screen', screen.height, screen.width)
+  let yMargin = screen.height / 2.83;
   let height = screen.height - yMargin;
-  let xMargin = 1200;
+  let xMargin = screen.width / 2.13;
   let width = screen.width - xMargin;
 
   if (window)
     window.setFrame({
-      y: yMargin / 2, // 23px is height of menu bar
+      y: yMargin / 2 + 23, // 23px is height of menu bar
       x: xMargin / 2,
       height: height,
       width: width,
