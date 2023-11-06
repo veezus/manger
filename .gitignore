@@ -10,3 +10,4 @@ node_modules
 .ruby-gemset
 .env
 .idea
+.yarn-error.log
