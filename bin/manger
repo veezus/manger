@@ -1,8 +1,9 @@
 #!/usr/bin/env zsh
 
 source_dir=`pwd`
-dotfiles=(.zshrc .zshrc.veezus .ctags .gemrc .gitconfig .gitignore .irbrc .phoenix.js .railsrc .ssh/config .tmux.conf)
-dotfiles+=(.tmux-osx.conf .vimrc .vimrc.local .vimrc.veezus)
+dotfiles=(.zshrc .zshrc.veezus .ctags .gemrc .gitattributes .gitconfig .gitignore .irbrc)
+dotfiles+=(.phoenix.js .railsrc .ssh/config .tmux.conf .tmux-osx.conf .vimrc .vimrc.local)
+dotfiles+=(.vimrc.veezus)
 executables=(bin/manger bin/untilfail)
 
 function _link {

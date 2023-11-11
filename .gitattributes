@@ -1,0 +1,2 @@
+# Use the ruby diff for ruby files.
+*.rb diff=ruby
