@@ -19,6 +19,7 @@ alias whosbeeneatingmycookies="git whosbeeneatingmycookies | column -ts$'\t'"
 
 export EDITOR=vim
 export LANG=en_US.utf-8
+export RUBYOPT="-rdebug"
 
 # Prompt
 autoload -Uz vcs_info
