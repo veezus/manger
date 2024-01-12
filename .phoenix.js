@@ -36,13 +36,13 @@ let halfRight = function () {
 let musicPodcasts = function() {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
-  let width = 1140;
+  let width = 1240;
   let height = 650;
 
   if (window)
     window.setFrame({
       y: 0,
-      x: screen.width - 380 - width,
+      x: screen.width - 375 - width,
       height: height,
       width: width,
     });
