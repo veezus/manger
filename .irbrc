@@ -10,7 +10,7 @@ def purple(text) = colorize text, 35
 def cyan(text) = colorize text, 36
 def gray(text) = colorize text, 37
 
-if defined? Rails
+if defined?(Rails) && defined?(Rails.env)
   prompt = case Rails.env
            when 'development'
              green Rails.env
