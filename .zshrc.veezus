@@ -68,7 +68,7 @@ gems() {
 
 # `tags` generates tags using both ctags and ripper-tags (for ruby)
 tags() {
-  ctags -R . --exclude=*.rb
+  ctags -R . --exclude="*.rb"
   ripper-tags -Ra
 }
 
