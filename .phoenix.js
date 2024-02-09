@@ -52,12 +52,12 @@ let clock = function() {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
   let width = 500;
-  let height = 550;
+  let height = 650;
 
   if (window)
     window.setFrame({
       y: 0,
-      x: (screen.width - 220 - width) / 2,
+      x: (screen.width - 280 - width) / 2,
       height: height,
       width: width,
     });
@@ -167,6 +167,23 @@ let generalUseRight = function () {
     });
 };
 
+let generalUseLeft = function () {
+  let screen = Screen.main().flippedVisibleFrame();
+  let window = Window.focused();
+  let yMargin = 500;
+  let height = screen.height - yMargin;
+  let xMargin = 0;
+  let width = screen.width - 1358;
+
+  if (window)
+    window.setFrame({
+      y: yMargin + 23,
+      x: xMargin,
+      height: height,
+      width: width,
+    });
+};
+
 let fullsize = function () {
   let screen = Screen.main().flippedVisibleFrame();
   let window = Window.focused();
@@ -191,5 +208,6 @@ let btnClock = new Key('c', ['alt'], clock);
 let btnNotObsidian = new Key('o', ['alt', 'shift'], notObsidian);
 let btnObsidian = new Key('o', ['alt'], obsidian);
 let btnGeneralUseRight = new Key('right', ['alt', 'shift'], generalUseRight);
+let btnGeneralUseLeft = new Key('left', ['alt', 'shift'], generalUseLeft);
 let btnHalfRight = new Key('right', ['alt'], halfRight);
 let btnFullsize = new Key('up', ['alt'], fullsize);
