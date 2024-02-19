@@ -15,6 +15,7 @@
   pm = push manger HEAD
   pr = pull --rebase
   put = push origin HEAD
+  putf = push origin HEAD --force-with-lease
   ra = rebase --abort
   rc = rebase --continue
   reauthor = commit --amend --reset-author -CHEAD
