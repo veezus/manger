@@ -21,6 +21,9 @@ export EDITOR=vim
 export LANG=en_US.utf-8
 export RUBYOPT="-rdebug"
 
+# https://stackoverflow.com/questions/75247041/ruby-3-0-4-with-postgres-14-throws-segmentation-fault
+export PGGSSENCMODE="disable"
+
 # Prompt
 autoload -Uz vcs_info
 precmd() { vcs_info }
