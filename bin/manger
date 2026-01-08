@@ -4,6 +4,7 @@ source_dir=`pwd`
 dotfiles=(.zshrc .zshrc.veezus .ctags .gemrc .gitattributes .gitconfig .gitignore .irbrc)
 dotfiles+=(.phoenix.js .railsrc .ssh/config .tmux.conf .tmux-osx.conf .vimrc .vimrc.local)
 dotfiles+=(.vimrc.veezus)
+declare -A config_files=(ghostty-config .config/ghostty/config)
 executables=(bin/manger bin/untilfail)
 
 function _link {
@@ -26,6 +27,15 @@ function _link {
     else
       echo "Adding symlink for $file"
       ln -s $source_dir/$file $HOME/$file
+    fi
+  done
+
+  for source target in ${(kv)config_files}; do
+    if [ -e $HOME/$target ]; then
+      echo "Skipping existing $source -> $target"
+    else
+      echo "Adding synlink for $source -> $target"
+      ln -s $source_dir/$source $HOME/$target
     fi
   done
 }
@@ -56,6 +66,8 @@ function _unlink {
       echo "Ignoring non-existent $HOME/$file"
     fi
   done
+
+  # TODO: Add support for removing config files
 }
 
 function _install_bundle {
